@@ -20,6 +20,15 @@ The code from in the book is looked as a reference (**NOT COPIED**) for how thes
 
 Most of these Data Structures acutally exist already in the C# libraries and are most likely more efficient and should be used above the ones in this project...but in the off-chance you like these Data Structures and the way they are programmed more, then by all means, go ahead and use them.
 
+#To-Do List:
+
+- [] Good Comments !!
+- [] Lists
+- [] Iterators
+- [] Trees
+- [] AVL Trees
+- [] Anything else I decide to add
+
 # How can I use these Data Structures in my project?
 
 **THESE DIRECTIONS ARE FOR VISUAL STUDIO CODE**
