@@ -54,7 +54,7 @@ dotnet restore
 And you are finished! You should be able to start using the Data Structures in your project! YAY!
 
 Example:
-```
+```c#
 using System;
 using BasicDataStructures.Stacks;
 using BasicDataStructures.Queues;
