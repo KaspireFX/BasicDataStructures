@@ -13,6 +13,7 @@ I simply prefer C# as a language over Java. Java is a decent language and it is 
 No, the Data Structures in this project are not my own ideas. I am getting these Data Structure ideas from the textbook of my University class:
 
 *Data Structures and Abstractions with Java* by *Frank M. Carrano* & *Timothy M. Henry*
+
 _I will add the amazon link soon_
 
 The code from in the book is looked as a reference (**NOT COPIED**) for how these Data Structures in the project should work, but some variable names and pieces of code that only exist in C# syntax are different.
