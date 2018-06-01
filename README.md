@@ -1,6 +1,6 @@
-### BasicDataStructures
+# BasicDataStructures
 
-## What is this project?
+# What is this project?
 
 This project is a Summer learning and time passing experience for me. I recently took a class in University on Data Structures, Abstraction and Object Oriented Programming. This class was taught in Java and if you are curious I passed with a B :).
 
@@ -21,6 +21,13 @@ The code from in the book is looked as a reference (**NOT COPIED**) for how thes
 Most of these Data Structures acutally exist already in the C# libraries and are most likely more efficient and should be used above the ones in this project...but in the off-chance you like these Data Structures and the way they are programmed more, then by all means, go ahead and use them.
 
 # How can I use these Data Structures in my project?
+
+**THESE DIRECTIONS ARE FOR VISUAL STUDIO CODE**
+Make sure you have the following plugins installed in your VSCode first:
+- C# : By Microsoft
+- C# Extensions : By Johannon
+- C# FixFormat : By Leopotam
+- *Optional* .Net Core Test Explorer : by Jun Han (Needed if you wish to use the NUnit Testing in this project)
 
 If you are on .Net Core 2.0/2.1 (Linux/Unix) you can `git clone` this project, change directory into the classlibrary, and pack the classlibrary to create a .nupkg file in the *bin/Debug/* directory.
 
