@@ -23,6 +23,7 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 # How can I use these Data Structures in my project?
 
 **THESE DIRECTIONS ARE FOR VISUAL STUDIO CODE**
+
 Make sure you have the following plugins installed in your VSCode first:
 - C# : By Microsoft
 - C# Extensions : By Johannon
