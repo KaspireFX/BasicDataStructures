@@ -5,7 +5,7 @@ namespace DataStructures.Stacks {
     public class LinkedStack<E> : IStackInterface<E>
     {
         private Node TopNode;
-        private int NumOfElements;
+        public int NumOfElements { get; private set; } = 0;
         private bool Initialized = false;
 
         public LinkedStack() {
@@ -16,6 +16,12 @@ namespace DataStructures.Stacks {
 
         public void Empty()
         {
+            CheckInitialization();
+
+            if(IsEmpty()) {
+                throw new InvalidOperationException("Stack is Empty.");
+            }
+
             Node tmp;
             while(NumOfElements != 0) {
                 tmp = TopNode.Previous;
@@ -27,21 +33,33 @@ namespace DataStructures.Stacks {
 
         public int GetNumOfElements()
         {
+            CheckInitialization();
+
             return NumOfElements;
         }
 
         public bool IsEmpty()
         {
+            CheckInitialization();
+
             return TopNode == null;
         }
 
         public E Peek()
         {
+            CheckInitialization();
+
             return TopNode.Data;
         }
 
         public E Pop()
         {
+            CheckInitialization();
+
+            if(IsEmpty()) {
+                throw new InvalidOperationException("Stack is Empty.");
+            }
+            
             E tmp = TopNode.Data;
             TopNode = TopNode.Previous;
             NumOfElements--;
@@ -50,6 +68,8 @@ namespace DataStructures.Stacks {
 
         public void Push(E element)
         {
+            CheckInitialization();
+
             Node NewNode = new Node();
             NewNode.Previous = TopNode;
             TopNode = NewNode;
