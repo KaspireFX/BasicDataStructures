@@ -1,0 +1,14 @@
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/bin/Debug/netcoreapp2.1/TestConsole.deps.json
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/bin/Debug/netcoreapp2.1/TestConsole.runtimeconfig.json
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/bin/Debug/netcoreapp2.1/TestConsole.runtimeconfig.dev.json
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/bin/Debug/netcoreapp2.1/TestConsole.dll
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/bin/Debug/netcoreapp2.1/TestConsole.pdb
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/bin/Debug/netcoreapp2.1/DataStructures.dll
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/bin/Debug/netcoreapp2.1/DataStructures.pdb
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/Debug/netcoreapp2.1/TestConsole.csprojAssemblyReference.cache
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/Debug/netcoreapp2.1/TestConsole.csproj.CoreCompileInputs.cache
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/Debug/netcoreapp2.1/TestConsole.AssemblyInfoInputs.cache
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/Debug/netcoreapp2.1/TestConsole.AssemblyInfo.cs
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/Debug/netcoreapp2.1/TestConsole.csproj.CopyComplete
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/Debug/netcoreapp2.1/TestConsole.dll
+/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/Debug/netcoreapp2.1/TestConsole.pdb
