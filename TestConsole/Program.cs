@@ -10,10 +10,11 @@ namespace TestConsole
         {
             Queue.Enqueue("Bob");
             Queue.Dequeue();
-            Queue.Enqueue("Joey");
-            Console.WriteLine("Should equal Joey: {0}", Queue.GetFront());
-            Queue.Clear();
-            Console.WriteLine(Queue.NumOfElements);
+            try {
+                Queue.Dequeue();
+            } catch (InvalidOperationException e) {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
