@@ -1,3 +1,11 @@
+/*
+Author: Jacob Chandler
+File: LinkedQueue.cs
+Version: 1.0.1
+Description: This file is the linkedQueue class file which implements IQueueInterface.
+Date of Comment: 06:01:2018
+ */
+
 using System;
 
 namespace DataStructures.Queues {

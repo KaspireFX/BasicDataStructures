@@ -1,3 +1,11 @@
+/*
+Author: Jacob Chandler
+File: ArrayStack.cs
+Version: 1.0.1
+Description: This file is the class file for the ArrayStack object which implements IStackInterface.
+Date of Comment: 06:01:2018
+ */
+
 using System;
 
 namespace DataStructures.Stacks {

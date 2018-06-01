@@ -1,3 +1,11 @@
+/*
+Author: Jacob Chandler
+File: UnitTest1.cs
+Version: 1.0.1
+Description: This file contains NUnit test functionality for the Data Structures class Library.
+Date of Comment: 06:01:2018
+ */
+
 using NUnit.Framework;
 using DataStructures.Queues;
 
