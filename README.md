@@ -24,6 +24,7 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 If you are on .Net Core 2.0/2.1 (Linux/Unix) you can `git clone` this project, change directory into the classlibrary, and pack the classlibrary to create a .nupkg file in the *bin/Debug/* directory.
 
 ```
+git clone https://github.com/KaspireFX/BasicDataStructures.git
 cd BasicDataStructures/DataStructures/
 dotnet pack
 ```
