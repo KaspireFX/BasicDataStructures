@@ -1,14 +1,14 @@
 # BasicDataStructures
 
-# What is this project?
+## What is this project?
 
 This project is a Summer learning and time passing experience for me. I recently took a class in University on Data Structures, Abstraction and Object Oriented Programming. This class was taught in Java and if you are curious I passed with a B :).
 
-# If the class was taught in Java, why is this project in C#?
+## If the class was taught in Java, why is this project in C#?
 
 I simply prefer C# as a language over Java. Java is a decent language and it is really nice for mobile development (Android). I also know less about C# than I do Java and I am using this project as a learning experience to understand the C# language better.
 
-# Are the Data Structures in this project your own ideas?
+## Are the Data Structures in this project your own ideas?
 
 No, the Data Structures in this project are not my own ideas. I am getting these Data Structure ideas from the textbook of my University class:
 
@@ -20,7 +20,7 @@ The code from in the book is looked at as a reference (**NOT COPIED**) for how t
 
 Most of these Data Structures acutally exist already in the C# libraries and are most likely more efficient and should be used above the ones in this project...but in the off-chance you like these Data Structures and the way they are programmed more, then by all means, go ahead and use them.
 
-# To-Do List:
+## To-Do List:
 
 - [x] Stacks
 - [x] Queues
@@ -31,7 +31,7 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 - [ ] Good Comments !!
 - [ ] Anything else I decide to add
 
-# How can I use these Data Structures in my project?
+## How can I use these Data Structures in my project?
 
 **THESE DIRECTIONS ARE FOR VISUAL STUDIO CODE**
 
