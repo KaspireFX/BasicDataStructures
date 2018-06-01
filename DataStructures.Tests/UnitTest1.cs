@@ -5,20 +5,38 @@ namespace Tests
 {
     public class Tests
     {
-        LinkedQueue<string> Queue = new LinkedQueue<string>();
+        private static LinkedQueue<string> Queue2;
 
         [SetUp]
         public void Setup()
         {
-            Queue.Enqueue("Bob");
-            Queue.Enqueue("Phil");
-            Queue.Dequeue();
+            Queue2 = new LinkedQueue<string>();
+            Queue2.Enqueue("Bob");
         }
 
         [Test]
-        public void Test1()
+        public void Test1() {
+            Assert.AreEqual("Bob", Queue2.Dequeue());
+        }
+
+        [Test]
+        public void Test2() {
+            Queue2.Dequeue();
+            Assert.AreEqual(0, Queue2.NumOfElements);
+        }
+
+        [Test]
+        public void Test3() {
+            Queue2.Dequeue();
+            Queue2.Enqueue("Joey");
+            Assert.AreEqual("Joey", Queue2.GetFront());
+        }
+
+        [Test]
+        public void Test4()
         {
-            Assert.AreEqual("Phil", Queue.GetFront());
+            Queue2.Clear();
+            Assert.True(Queue2.IsEmpty());
         }
     }
 }

@@ -6,33 +6,29 @@ namespace DataStructures.Queues {
     {
         private Node FrontNode;
         private Node BackNode;
-        private int NumOfElements;
-        private bool Initialized;
+        private bool Initialized = false;
+        public int NumOfElements { get; private set; } = 0;
 
         public LinkedQueue() {
-            FrontNode = new Node();
-            BackNode = new Node(null, FrontNode, default(E));
-            FrontNode.Next = BackNode;
+            FrontNode = null;
+            BackNode = null;
             NumOfElements = 0;
             Initialized = true;
         }
 
         public void Clear()
         {
-            for(int i = 0; i < NumOfElements; i++) {
-                Node Temp = new Node();
-                BackNode.Previous = Temp;
-                BackNode = null;
-            }
+            FrontNode = null;
+            BackNode = null;
+            NumOfElements = 0;
         }
 
         public E Dequeue()
         {
-            E TempData = FrontNode.Data;
+            E TempData = GetFront();
+            FrontNode.Data = default(E);
             FrontNode = FrontNode.Next;
-            FrontNode.Previous = null;
             NumOfElements--;
-
             return TempData;
         }
 
@@ -42,12 +38,11 @@ namespace DataStructures.Queues {
 
             if(IsEmpty()) {
                 FrontNode = NewNode;
-                FrontNode.Next = BackNode;
-                BackNode.Previous = FrontNode;
             } else {
-                NewNode.Previous = BackNode.Previous;
+                BackNode.Next = NewNode;
                 BackNode = NewNode;
             }
+
             NumOfElements++;
         }
 
@@ -58,29 +53,25 @@ namespace DataStructures.Queues {
 
         public bool IsEmpty()
         {
-            return NumOfElements == 0;
+            return (NumOfElements == 0) && (FrontNode == null && BackNode == null);
         }
 
         internal class Node {
-            internal Node Previous { get; set; }
             internal Node Next { get; set; }
             internal E Data { get; set; }
 
             internal Node() {
-                this.Previous = null;
                 this.Next = null;
                 this.Data = default(E);
             }
 
             internal Node(E NodeData) {
                 this.Next = null;
-                this.Previous = null;
                 this.Data = NodeData;
             }
 
-            internal Node(Node NextNode, Node PreviousNode, E NodeData) {
+            internal Node(Node NextNode, E NodeData) {
                 this.Next = NextNode;
-                this.Previous = PreviousNode;
                 this.Data = NodeData;
             }
         }   

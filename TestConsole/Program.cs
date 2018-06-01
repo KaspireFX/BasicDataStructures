@@ -9,9 +9,11 @@ namespace TestConsole
         static void Main(string[] args)
         {
             Queue.Enqueue("Bob");
-            Queue.Enqueue("Phil");
-            Console.WriteLine(Queue.Dequeue());
-            Console.WriteLine(Queue.GetFront());
+            Queue.Dequeue();
+            Queue.Enqueue("Joey");
+            Console.WriteLine("Should equal Joey: {0}", Queue.GetFront());
+            Queue.Clear();
+            Console.WriteLine(Queue.NumOfElements);
         }
     }
 }
