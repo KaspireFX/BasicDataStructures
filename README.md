@@ -16,17 +16,19 @@ No, the Data Structures in this project are not my own ideas. I am getting these
 
 _I will add the amazon link soon_
 
-The code from in the book is looked as a reference (**NOT COPIED**) for how these Data Structures in the project should work, but some variable names and pieces of code that only exist in C# syntax are different.
+The code from in the book is looked at as a reference (**NOT COPIED**) for how these Data Structures in the project should work, but some variable names and pieces of code that only exist in C# syntax are different.
 
 Most of these Data Structures acutally exist already in the C# libraries and are most likely more efficient and should be used above the ones in this project...but in the off-chance you like these Data Structures and the way they are programmed more, then by all means, go ahead and use them.
 
 # To-Do List:
 
-- [ ] Good Comments !!
+- [x] Stacks
+- [x] Queues
 - [ ] Lists
 - [ ] Iterators
 - [ ] Trees
 - [ ] AVL Trees
+- [ ] Good Comments !!
 - [ ] Anything else I decide to add
 
 # How can I use these Data Structures in my project?
