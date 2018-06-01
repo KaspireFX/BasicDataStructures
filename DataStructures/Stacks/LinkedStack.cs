@@ -49,6 +49,10 @@ namespace DataStructures.Stacks {
         {
             CheckInitialization();
 
+            if(IsEmpty()) {
+                throw new InvalidOperationException("Stack is Empty.");
+            }
+
             return TopNode.Data;
         }
 
