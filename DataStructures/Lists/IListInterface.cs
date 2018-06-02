@@ -1,3 +1,11 @@
+/*
+Author: Jacob Chandler
+File: IListInterface.cs
+Version 1.0.1
+Description: This file is the Interface for the list data type.
+Date of Comment: 06:02:2018
+ */
+
 using System;
 
 namespace DataStructures.Lists {
