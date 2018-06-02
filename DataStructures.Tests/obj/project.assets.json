@@ -5658,11 +5658,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kas/Documents/CodeProjects/BasicDataStructures/DataStructures.Tests/DataStructures.Tests.csproj",
+      "projectUniqueName": "/home/kas/Documents/CodeProjects/DataStructuresProject/DataStructures.Tests/DataStructures.Tests.csproj",
       "projectName": "DataStructures.Tests",
-      "projectPath": "/home/kas/Documents/CodeProjects/BasicDataStructures/DataStructures.Tests/DataStructures.Tests.csproj",
+      "projectPath": "/home/kas/Documents/CodeProjects/DataStructuresProject/DataStructures.Tests/DataStructures.Tests.csproj",
       "packagesPath": "/home/kas/.nuget/packages/",
-      "outputPath": "/home/kas/Documents/CodeProjects/BasicDataStructures/DataStructures.Tests/obj/",
+      "outputPath": "/home/kas/Documents/CodeProjects/DataStructuresProject/DataStructures.Tests/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/opt/dotnet/sdk/NuGetFallbackFolder"
@@ -5679,8 +5679,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/home/kas/Documents/CodeProjects/BasicDataStructures/DataStructures/DataStructures.csproj": {
-              "projectPath": "/home/kas/Documents/CodeProjects/BasicDataStructures/DataStructures/DataStructures.csproj"
+            "/home/kas/Documents/CodeProjects/DataStructuresProject/DataStructures/DataStructures.csproj": {
+              "projectPath": "/home/kas/Documents/CodeProjects/DataStructuresProject/DataStructures/DataStructures.csproj"
             }
           }
         }
