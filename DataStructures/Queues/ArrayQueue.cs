@@ -1,3 +1,11 @@
+/*
+Author: Jacob Chandler
+File: ArrayQueue.cs
+Version: 1.0.1
+Description: This file is the ArrayQueue class file which implements IQueueInterface.
+Date of Comment: 06:01:2018
+ */
+
 using System;
 
 namespace DataStructures.Queues {
@@ -51,6 +59,11 @@ namespace DataStructures.Queues {
         public void Clear()
         {
             CheckInitialized();
+
+            if(IsEmpty()) {
+                throw new InvalidOperationException("ArrayQueue is Empty.");
+            }
+
             int Indexer = FrontIndex;
 
             while((Indexer % Queue.Length) != BackIndex) {
@@ -62,6 +75,10 @@ namespace DataStructures.Queues {
         public E Dequeue()
         {
             CheckInitialized();
+
+            if(IsEmpty()) {
+                throw new InvalidOperationException("ArrayQueue is Empty.");
+            }
 
             E Temp = Queue[FrontIndex];
             Queue[FrontIndex] = default(E);
@@ -82,10 +99,13 @@ namespace DataStructures.Queues {
             }
         }
 
-
         public E GetFront()
         {
             CheckInitialized();
+
+            if(IsEmpty()) {
+                throw new InvalidOperationException("ArrayQueue is Empty.");
+            }
 
             return Queue[FrontIndex];
         }

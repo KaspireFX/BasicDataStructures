@@ -1,3 +1,11 @@
+/*
+Author: Jacob Chandler
+File: ArrayStack.cs
+Version: 1.0.1
+Description: This file is the class file for the ArrayStack object which implements IStackInterface.
+Date of Comment: 06:01:2018
+ */
+
 using System;
 
 namespace DataStructures.Stacks {
@@ -5,7 +13,7 @@ namespace DataStructures.Stacks {
     public class ArrayStack<E> : IStackInterface<E> {
         private E[] StackOfElements;
         private const int DEFAULT_CAPACITY = 10;
-        private int NumOfElements;
+        public int NumOfElements { get; private set; } = 0;
         private int TopElement;
         private bool Initialized = false;
         public int Length { get; private set; }
@@ -22,6 +30,10 @@ namespace DataStructures.Stacks {
 
         public void Empty () {
             CheckInitialization ();
+
+            if(IsEmpty()) {
+                throw new InvalidOperationException("Stack is Empty.");
+            }
 
             for (int i = 0; i < NumOfElements; i++) {
                 StackOfElements[i] = default (E);
@@ -46,7 +58,7 @@ namespace DataStructures.Stacks {
             CheckInitialization ();
 
             if (IsEmpty ()) {
-                throw new IndexOutOfRangeException ("Cannot pop an empty stack.");
+                throw new InvalidOperationException("Stack is Empty.");
             }
 
             E tmp = StackOfElements[TopElement];
