@@ -6,45 +6,63 @@ Description: This file contains NUnit test functionality for the Data Structures
 Date of Comment: 06:01:2018
  */
 
+using System;
 using NUnit.Framework;
-using DataStructures.Queues;
+using DataStructures.Lists;
 
 namespace Tests
 {
     public class Tests
     {
-        private static LinkedQueue<string> Queue2;
+
+        ArrayList<string> List = new ArrayList<string>(2);
 
         [SetUp]
         public void Setup()
         {
-            Queue2 = new LinkedQueue<string>();
-            Queue2.Enqueue("Bob");
+            List.Add("Abbi");
+            List.Add("Bob");
+            List.Add("Frank");
+            List.Add("Phillis");
+            List.Add("Zorg");
         }
 
         [Test]
         public void Test1() {
-            Assert.AreEqual("Bob", Queue2.Dequeue());
+            Assert.AreEqual(5, List.NumOfElements);
         }
 
         [Test]
         public void Test2() {
-            Queue2.Dequeue();
-            Assert.AreEqual(0, Queue2.NumOfElements);
+            Assert.False(List.IsEmpty());
         }
 
         [Test]
         public void Test3() {
-            Queue2.Dequeue();
-            Queue2.Enqueue("Joey");
-            Assert.AreEqual("Joey", Queue2.GetFront());
+            List.Replace(3, "Brandy");
+            Assert.AreEqual("Brandy", List.GetEntryAt(3));
         }
 
         [Test]
         public void Test4()
         {
-            Queue2.Clear();
-            Assert.True(Queue2.IsEmpty());
+            List.Remove(1);
+            Assert.AreEqual("Bob", List.GetEntryAt(1));
+        }
+
+        [Test]
+        public void Test5() {
+            List.Clear();
+            Assert.True(List.IsEmpty());
+        }
+
+        [Test]
+        public void Test6() {
+            Assert.Throws<ArgumentOutOfRangeException>(new TestDelegate(MyDelegate));
+        }
+
+        void MyDelegate() {
+            List.GetEntryAt(30);
         }
     }
 }

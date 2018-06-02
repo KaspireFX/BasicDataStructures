@@ -7,22 +7,23 @@ Date of Comment: 06:01:2018
  */
  
 using System;
-using DataStructures.Queues;
+using DataStructures.Lists;
 
 namespace TestConsole
 {
     class Program
     {
-        private static LinkedQueue<string> Queue = new LinkedQueue<string>();
-        static void Main(string[] args)
+        private static ArrayList<string> List = new ArrayList<string>(2);
+        public static void Main(string[] args)
         {
-            Queue.Enqueue("Bob");
-            Queue.Dequeue();
-            try {
-                Queue.Dequeue();
-            } catch (InvalidOperationException e) {
-                Console.WriteLine(e.Message);
-            }
+            List.Add("Bob");
+            List.Add("Phil");
+            List.Add("Megan");
+            Console.WriteLine("3: {0}", List.GetEntryAt(2));
+            List.Replace(3, "Bobby");
+            Console.WriteLine("3: {0}", List.GetEntryAt(3));
+            List.Remove(1);
+            Console.WriteLine("Front: {0}", List.GetEntryAt(1));
         }
     }
 }
