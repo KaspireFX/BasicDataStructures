@@ -703,11 +703,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kas/Documents/CodeProjects/BasicDataStructures/TestConsole/TestConsole.csproj",
+      "projectUniqueName": "/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/TestConsole.csproj",
       "projectName": "TestConsole",
-      "projectPath": "/home/kas/Documents/CodeProjects/BasicDataStructures/TestConsole/TestConsole.csproj",
+      "projectPath": "/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/TestConsole.csproj",
       "packagesPath": "/home/kas/.nuget/packages/",
-      "outputPath": "/home/kas/Documents/CodeProjects/BasicDataStructures/TestConsole/obj/",
+      "outputPath": "/home/kas/Documents/CodeProjects/DataStructuresProject/TestConsole/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/opt/dotnet/sdk/NuGetFallbackFolder"
@@ -724,8 +724,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "/home/kas/Documents/CodeProjects/BasicDataStructures/DataStructures/DataStructures.csproj": {
-              "projectPath": "/home/kas/Documents/CodeProjects/BasicDataStructures/DataStructures/DataStructures.csproj"
+            "/home/kas/Documents/CodeProjects/DataStructuresProject/DataStructures/DataStructures.csproj": {
+              "projectPath": "/home/kas/Documents/CodeProjects/DataStructuresProject/DataStructures/DataStructures.csproj"
             }
           }
         }
