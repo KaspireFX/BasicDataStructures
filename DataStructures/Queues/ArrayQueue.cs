@@ -70,6 +70,8 @@ namespace DataStructures.Queues {
                 Queue[Indexer % Queue.Length] = default(E);
                 Indexer++;
             }
+
+            BackIndex = 1;
         }
 
         public E Dequeue()
