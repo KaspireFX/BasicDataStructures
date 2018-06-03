@@ -58,27 +58,27 @@ If you are on .Net Core (2.1) you can `git clone` this repository, change direct
 ```   
 
 ```
-git clone https://github.com/KaspireFX/BasicDataStructures.git
+$ git clone https://github.com/KaspireFX/BasicDataStructures.git
 ```
 
 or from gitlab (**More updated**)
 
 ```
-git clone https://gitlab.com/Kaspire/BasicDataStructures.git
+$ git clone https://gitlab.com/Kaspire/BasicDataStructures.git
 ```
 
 You will also need to do a project restore before you can do anything else.
 
 ```
-cd BasicDataStructures/
-dotnet restore
+$ cd BasicDataStructures/
+# dotnet restore
 ```
 
 Now you are good to go with creating a nuget package file:
 
 ```
-cd DataStructures/
-dotnet pack
+$ cd DataStructures/
+$ dotnet pack
 ```
 
 copy this .nupkg file into your project's directory (I recommend the /bin/Debug/ directory but it can be anywhere you are comfortable with) and add these lines into your project's .csproj file:
@@ -93,7 +93,7 @@ The `<PropertyGroup>` should already exist in your project's .csproj file so all
 Then, all you need to do is run a dotnet add command and let it add the .nupkg file to your .csproj file:
 
 ```
-dotnet add yourproject.csproj basicdatastructures --version #.#.#
+$ dotnet add yourproject.csproj basicdatastructures --version #.#.#
 ```
 
 Replace #.#.# with the current version number. (It is also important that you only use lowercase letters when adding the package).
@@ -101,7 +101,7 @@ Replace #.#.# with the current version number. (It is also important that you on
 Just do one more restore command:
 
 ```
-dotnet restore
+$ dotnet restore
 ```
 
 And you are finished! You should be able to start using the Data Structures in your project! YAY!
