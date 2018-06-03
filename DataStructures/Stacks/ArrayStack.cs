@@ -13,10 +13,10 @@ namespace DataStructures.Stacks {
     public class ArrayStack<E> : IStackInterface<E> {
         private E[] StackOfElements;
         private const int DEFAULT_CAPACITY = 10;
-        public int NumOfElements { get; private set; } = 0;
         private int TopElement;
         private bool Initialized = false;
         public int Length { get; private set; }
+        public int NumOfElements { get; private set; } = 0;
 
         public ArrayStack () : this (DEFAULT_CAPACITY) { }
 
