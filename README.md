@@ -23,7 +23,11 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 ## To-Do List:
 
 - [x] Stacks
+    - [x] Array based Implementation
+    - [x] Linked Chain based Implementation
 - [x] Queues
+    - [x] Array based Implementation (Circular Array)
+    - [x] Linked Chain based Implementation (Non-Circular Chain)
 - [ ] Lists
 - [ ] Iterators
 - [ ] Trees
@@ -36,10 +40,10 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 **THESE DIRECTIONS ARE FOR VISUAL STUDIO CODE**
 
 Make sure you have the following plugins installed in your VSCode first:
-- C# : By Microsoft
-- C# Extensions : By Johannon
-- C# FixFormat : By Leopotam
-- *Optional* .Net Core Test Explorer : by Jun Han (Helpful if you wish to use the NUnit Testing in this project)
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) : By Microsoft
+- [C# Extensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) : By Johannon
+- [C# FixFormat](https://marketplace.visualstudio.com/items?itemName=Leopotam.csharpfixformat) : By Leopotam
+- *Optional* [.Net Core Test Explorer](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer) : by Jun Han (Helpful if you wish to use the NUnit Testing in this project)
 
 If you are on .Net Core 2.0/2.1 (Linux/Unix) you can `git clone` this project, change directory into the classlibrary, and pack the classlibrary to create a .nupkg file in the *bin/Debug/* directory.
 
@@ -53,8 +57,17 @@ or from gitlab (**More updated**)
 git clone https://gitlab.com/Kaspire/BasicDataStructures.git
 ```
 
+You will also need to do a project restore before you can do anything else.
+
 ```
-cd BasicDataStructures/DataStructures/
+cd BasicDataStructures/
+dotnet restore
+```
+
+Now you are good to go with creating a nuget package file:
+
+```
+cd DataStructures/
 dotnet pack
 ```
 
