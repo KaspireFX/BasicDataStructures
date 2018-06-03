@@ -52,7 +52,7 @@ If you are on .Net Core (2.1) you can `git clone` this repository, change direct
 - [Windows](https://www.microsoft.com/net/learn/get-started/windows)
 - [MacOS](https://www.microsoft.com/net/learn/get-started/macos)
 - [Ubuntu/Debian/Fedora/CentOS/OpenSUSE/SLES](https://www.microsoft.com/net/learn/get-started/linux/ubuntu18-04)
-- ArchLinux:   
+- ArchLinux:
 ```
 # pacman -S dotnet-sdk
 ```   
