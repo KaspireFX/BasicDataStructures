@@ -14,7 +14,7 @@ No, the Data Structures in this project are not my own ideas. I am getting these
 
 *Data Structures and Abstractions with Java* by *Frank M. Carrano* & *Timothy M. Henry*
 
-_I will add the amazon link soon_
+[Buy on amazon here!](https://www.amazon.com/Data-Structures-Abstractions-Java-4th/dp/0133744051/ref=sr_1_2?ie=UTF8&qid=1527985860&sr=8-2&keywords=Data+Structures+and+Abstractions+with+java)
 
 The code from in the book is looked at as a reference (**NOT COPIED**) for how these Data Structures in the project should work, but some variable names and pieces of code that only exist in C# syntax are different.
 
@@ -39,12 +39,21 @@ Make sure you have the following plugins installed in your VSCode first:
 - C# : By Microsoft
 - C# Extensions : By Johannon
 - C# FixFormat : By Leopotam
-- *Optional* .Net Core Test Explorer : by Jun Han (Needed if you wish to use the NUnit Testing in this project)
+- *Optional* .Net Core Test Explorer : by Jun Han (Helpful if you wish to use the NUnit Testing in this project)
 
 If you are on .Net Core 2.0/2.1 (Linux/Unix) you can `git clone` this project, change directory into the classlibrary, and pack the classlibrary to create a .nupkg file in the *bin/Debug/* directory.
 
 ```
 git clone https://github.com/KaspireFX/BasicDataStructures.git
+```
+
+or from gitlab (**More updated**)
+
+```
+git clone https://gitlab.com/Kaspire/BasicDataStructures.git
+```
+
+```
 cd BasicDataStructures/DataStructures/
 dotnet pack
 ```
