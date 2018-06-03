@@ -66,6 +66,7 @@ namespace DataStructures.Queues {
 
             if(IsEmpty()) {
                 FrontNode = NewNode;
+                BackNode = FrontNode;
             } else {
                 BackNode.Next = NewNode;
                 BackNode = NewNode;
