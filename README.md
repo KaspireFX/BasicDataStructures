@@ -38,6 +38,7 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 ## How can I use these Data Structures in my project?
 
 **THESE DIRECTIONS ARE FOR VISUAL STUDIO CODE**
+**Use Windows Powershell or Mac/Linux Bash to run all commands shown below**
 
 Make sure you have the following plugins installed in your VSCode first:
 - [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) : By Microsoft
@@ -45,7 +46,16 @@ Make sure you have the following plugins installed in your VSCode first:
 - [C# FixFormat](https://marketplace.visualstudio.com/items?itemName=Leopotam.csharpfixformat) : By Leopotam
 - [.Net Core Test Explorer](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer) *Optional* : by Jun Han (Helpful if you wish to use the NUnit Testing in this project)
 
-If you are on .Net Core 2.0/2.1 (Linux/Unix) you can `git clone` this project, change directory into the classlibrary, and pack the classlibrary to create a .nupkg file in the *bin/Debug/* directory.
+If you are on .Net Core (2.1) (Linux/Unix) you can `git clone` this project, change directory into the classlibrary, and pack the classlibrary to create a .nupkg file in the *bin/Debug/* directory.
+
+(*If you are on .Net Core 2.0 you can update to 2.1 by any of the three ways below*):
+- [Windows](https://www.microsoft.com/net/learn/get-started/windows)
+- [MacOS](https://www.microsoft.com/net/learn/get-started/macos)
+- [Ubuntu/Debian/Fedora/CentOS/OpenSUSE/SLES](https://www.microsoft.com/net/learn/get-started/linux/ubuntu18-04)
+- ArchLinux:   
+```
+# pacman -S dotnet-sdk
+```   
 
 ```
 git clone https://github.com/KaspireFX/BasicDataStructures.git
