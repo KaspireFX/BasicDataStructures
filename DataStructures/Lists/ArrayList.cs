@@ -1,3 +1,11 @@
+/*
+Author: Jacob Chandler
+File: ArrayList.cs
+Version 1.0.1
+Description: This file is the ArrayList class file which implements IListInterface.
+Date of Comment: 06:02:2018
+ */
+
 using System;
 
 namespace DataStructures.Lists {
