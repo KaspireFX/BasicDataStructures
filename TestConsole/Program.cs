@@ -7,7 +7,7 @@ Date of Comment: 06:01:2018
  */
  
 using System;
-using DataStructures.Queues;
+using DataStructures.Stacks;
 
 namespace TestConsole
 {
