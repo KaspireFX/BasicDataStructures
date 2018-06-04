@@ -15,14 +15,15 @@ namespace DataStructures.Lists {
         private E[] List;
         private const int DEFAULT_CAPACITY = 10;
         private bool Initialized = false;
-        public int NumOfElements { get; private set; }
+
+        public int Count { get; private set; }
 
         public ArrayList() : this(DEFAULT_CAPACITY) {
         }
 
         public ArrayList(int Capacity) {
             List = new E[Capacity];
-            NumOfElements = 0;
+            Count = 0;
             Initialized = true;
         }
 
@@ -42,7 +43,7 @@ namespace DataStructures.Lists {
         }
 
         private bool CheckAvailability() {
-            if((NumOfElements + 1) >= List.Length) {
+            if((Count + 1) >= List.Length) {
                 return false;
             }
             return true;
@@ -50,7 +51,7 @@ namespace DataStructures.Lists {
 
         private void MakeRoom(int NewPosition)
         {
-            for(int i = NumOfElements; i >= NewPosition; i--) {
+            for(int i = Count; i >= NewPosition; i--) {
                 List[i + 1] = List[i];
             }
         }
@@ -66,7 +67,7 @@ namespace DataStructures.Lists {
 
         public void Add(E Entry)
         {
-            Add(NumOfElements + 1, Entry);
+            Add(Count + 1, Entry);
         }
 
         public void Add(int Position, E Entry)
@@ -75,11 +76,11 @@ namespace DataStructures.Lists {
 
             if(CheckAvailability()) {
                 if((Position >= 1) && (Position <= List.Length)) {
-                    if(Position <= NumOfElements) {
+                    if(Position <= Count) {
                         MakeRoom(Position);
                     }
                     List[Position] = Entry;
-                    NumOfElements++;
+                    Count++;
                 } else {
                     throw new ArgumentOutOfRangeException("Position is outside of List bounds.");
                 }
@@ -94,12 +95,12 @@ namespace DataStructures.Lists {
         {
             CheckInitialization();
 
-            int Index = NumOfElements;
+            int Index = Count;
             while(Index >= 1) {
                 List[Index] = default(E);
                 Index--;
             }
-            NumOfElements = Index;
+            Count = Index;
         }
 
         public bool Contains(E AnEntry)
@@ -118,7 +119,7 @@ namespace DataStructures.Lists {
             return false;
         }
 
-        public E GetEntryAt(int Position)
+        public E IndexOf(int Position)
         {
             CheckInitialization();
 
@@ -137,7 +138,7 @@ namespace DataStructures.Lists {
         {
             CheckInitialization();
 
-            return NumOfElements == 0;
+            return Count == 0;
         }
 
         public E Remove(int Position)
@@ -153,7 +154,7 @@ namespace DataStructures.Lists {
             if((Position >= 1) && (Position <= List.Length)) {
                 TempData = List[Position];
 
-                if(Position <= NumOfElements) {
+                if(Position <= Count) {
                     List[Position] = default(E);
                     FillIn(Position);
                 } else {
@@ -163,7 +164,7 @@ namespace DataStructures.Lists {
                 throw new ArgumentOutOfRangeException("Position is outside of List bounds.");
             }
 
-            NumOfElements--;
+            Count--;
             return TempData;
         }
 

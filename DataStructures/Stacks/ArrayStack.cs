@@ -16,14 +16,14 @@ namespace DataStructures.Stacks {
         private int TopElement;
         private bool Initialized = false;
         public int Length { get; private set; }
-        public int NumOfElements { get; private set; } = 0;
+        public int Count { get; private set; }
 
         public ArrayStack () : this (DEFAULT_CAPACITY) { }
 
         public ArrayStack (int capacity) {
             StackOfElements = new E[capacity];
             Length = StackOfElements.Length;
-            NumOfElements = 0;
+            Count = 0;
             TopElement = -1;
             Initialized = true;
         }
@@ -35,17 +35,11 @@ namespace DataStructures.Stacks {
                 throw new InvalidOperationException("Stack is Empty.");
             }
 
-            for (int i = 0; i < NumOfElements; i++) {
+            for (int i = 0; i < Count; i++) {
                 StackOfElements[i] = default (E);
                 TopElement--;
             }
-            NumOfElements = 0;
-        }
-
-        public int GetNumOfElements () {
-            CheckInitialization ();
-
-            return NumOfElements;
+            Count = 0;
         }
 
         public E Peek () {
@@ -63,7 +57,7 @@ namespace DataStructures.Stacks {
 
             E tmp = StackOfElements[TopElement];
             StackOfElements[TopElement] = default (E);
-            NumOfElements--;
+            Count--;
             TopElement--;
             return tmp;
         }
@@ -71,12 +65,12 @@ namespace DataStructures.Stacks {
         public void Push (E element) {
             CheckInitialization ();
 
-            if (NumOfElements >= StackOfElements.Length) {
+            if (Count >= StackOfElements.Length) {
                 StackOfElements = ReSize ();
             }
 
             StackOfElements[TopElement + 1] = element;
-            NumOfElements++;
+            Count++;
             TopElement++;
         }
 

@@ -13,12 +13,14 @@ namespace DataStructures.Stacks {
     public class LinkedStack<E> : IStackInterface<E>
     {
         private Node TopNode;
-        public int NumOfElements { get; private set; } = 0;
+
+        public int Count { get; private set; }
+
         private bool Initialized = false;
 
         public LinkedStack() {
             TopNode = null;
-            NumOfElements = 0;
+            Count = 0;
             Initialized = true;
         }
 
@@ -31,19 +33,12 @@ namespace DataStructures.Stacks {
             }
 
             Node tmp;
-            while(NumOfElements != 0) {
+            while(Count != 0) {
                 tmp = TopNode.Previous;
                 TopNode = null;
                 TopNode = tmp;
-                NumOfElements--;
+                Count--;
             }
-        }
-
-        public int GetNumOfElements()
-        {
-            CheckInitialization();
-
-            return NumOfElements;
         }
 
         public bool IsEmpty()
@@ -74,7 +69,7 @@ namespace DataStructures.Stacks {
             
             E tmp = TopNode.Data;
             TopNode = TopNode.Previous;
-            NumOfElements--;
+            Count--;
             return tmp;
         }
 
@@ -86,7 +81,7 @@ namespace DataStructures.Stacks {
             NewNode.Previous = TopNode;
             TopNode = NewNode;
             TopNode.Data = element;
-            NumOfElements++;
+            Count++;
         }
 
         private void CheckInitialization() {

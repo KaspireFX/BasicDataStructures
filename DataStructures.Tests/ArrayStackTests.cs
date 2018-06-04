@@ -28,7 +28,7 @@ namespace Tests.StackTests
 
         [Test]
         public void NumOfElementsShouldBe4() {
-            Assert.AreEqual(4, ArrayStack.NumOfElements);
+            Assert.AreEqual(4, ArrayStack.Count);
         }
 
         [Test]

@@ -12,6 +12,8 @@ namespace DataStructures.Queues {
 
     public interface IQueueInterface<T> {
 
+        int Count { get; }
+
         void Enqueue(T NewEntry);
 
         T Dequeue();

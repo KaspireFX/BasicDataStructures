@@ -12,6 +12,8 @@ namespace DataStructures.Lists {
 
     public interface IListInterface<T> {
 
+        int Count { get; }
+        
         void Add(T Entry);
 
         void Add(int Position, T Entry);
@@ -22,7 +24,7 @@ namespace DataStructures.Lists {
 
         T Replace(int Position, T NewEntry);
 
-        T GetEntryAt(int Position);
+        T IndexOf(int Position);
 
         T[] ToArray();
 

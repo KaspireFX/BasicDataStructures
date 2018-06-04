@@ -18,6 +18,7 @@ namespace DataStructures.Queues {
         private int BackIndex;
         private const int DEFAULT_CAPACITY = 10;
 
+        public int Count { get; private set; }
 
         public ArrayQueue() : this(DEFAULT_CAPACITY) {
         }
@@ -26,6 +27,7 @@ namespace DataStructures.Queues {
             Queue = new E[capacity];
             FrontIndex = 1;
             BackIndex = 1;
+            Count = 0;
             Initialized = true;
         }
 
@@ -69,6 +71,7 @@ namespace DataStructures.Queues {
             while((Indexer % Queue.Length) != BackIndex) {
                 Queue[Indexer % Queue.Length] = default(E);
                 Indexer++;
+                Count--;
             }
 
             BackIndex = 1;
@@ -85,6 +88,8 @@ namespace DataStructures.Queues {
             E Temp = Queue[FrontIndex];
             Queue[FrontIndex] = default(E);
             FrontIndex = (FrontIndex + 1) % Queue.Length;
+
+            Count--;
             return Temp;
         }
 
@@ -99,6 +104,8 @@ namespace DataStructures.Queues {
                 ReSize();
                 Enqueue(NewEntry);
             }
+
+            Count++;
         }
 
         public E GetFront()

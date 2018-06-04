@@ -12,6 +12,8 @@ namespace DataStructures.Stacks {
 
     public interface IStackInterface<T> {
 
+        int Count { get; }
+
         void Push(T element);
 
         T Pop();
@@ -19,8 +21,6 @@ namespace DataStructures.Stacks {
         T Peek();
 
         void Empty();
-
-        int GetNumOfElements();
 
         bool IsEmpty();
     }

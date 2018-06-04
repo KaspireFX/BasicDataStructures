@@ -15,12 +15,13 @@ namespace DataStructures.Queues {
         private Node FrontNode;
         private Node BackNode;
         private bool Initialized = false;
-        public int NumOfElements { get; private set; } = 0;
+
+        public int Count { get; private set; }
 
         public LinkedQueue() {
             FrontNode = null;
             BackNode = null;
-            NumOfElements = 0;
+            Count = 0;
             Initialized = true;
         }
 
@@ -40,7 +41,7 @@ namespace DataStructures.Queues {
 
             FrontNode = null;
             BackNode = null;
-            NumOfElements = 0;
+            Count = 0;
         }
 
         public E Dequeue()
@@ -54,7 +55,7 @@ namespace DataStructures.Queues {
             E TempData = GetFront();
             FrontNode.Data = default(E);
             FrontNode = FrontNode.Next;
-            NumOfElements--;
+            Count--;
             return TempData;
         }
 
@@ -72,7 +73,7 @@ namespace DataStructures.Queues {
                 BackNode = NewNode;
             }
 
-            NumOfElements++;
+            Count++;
         }
 
         public E GetFront()
@@ -90,7 +91,7 @@ namespace DataStructures.Queues {
         {
             CheckInitialized();
 
-            return (NumOfElements == 0) && (FrontNode == null && BackNode == null);
+            return (Count == 0) && (FrontNode == null && BackNode == null);
         }
 
         internal class Node {
