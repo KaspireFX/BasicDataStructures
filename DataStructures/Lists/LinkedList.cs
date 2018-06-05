@@ -3,7 +3,7 @@ Author: Jacob Chandler
 File: LinkedList.cs
 Version 1.0.1
 Description: This file is the LinkedList class file which implements IListInterface.
-Date of Comment: 06:02:2018
+Date of Comment: 06:05:2018
  */
 
 using System;
