@@ -15,19 +15,9 @@ namespace TestConsole
 {
     class Program
     {
-        private static LinkedList<string> LList = new LinkedList<string>();
         public static void Main(string[] args)
         {
-            LList.Add("Bob");
-            LList.Add("Phil");
-            LList.Add("Banana");
-            LList.Add(2, "Willie");
-            Console.WriteLine(LList.IndexOf(2));
-            Console.WriteLine(LList.Contains("Banana"));
-            Console.WriteLine(LList.Count);
-            LList.Empty();
-            Console.WriteLine(LList.IsEmpty());
-            Console.WriteLine(LList.Count);
+
         }
     }
 }
