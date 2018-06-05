@@ -91,7 +91,7 @@ namespace DataStructures.Lists {
         }
 
 
-        public void Clear()
+        public void Empty()
         {
             CheckInitialization();
 

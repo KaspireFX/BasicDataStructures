@@ -58,7 +58,7 @@ namespace DataStructures.Queues {
             BackIndex = Indexer;
         }
 
-        public void Clear()
+        public void Empty()
         {
             CheckInitialized();
 

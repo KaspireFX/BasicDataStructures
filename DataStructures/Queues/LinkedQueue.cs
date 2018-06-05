@@ -31,7 +31,7 @@ namespace DataStructures.Queues {
             }
         }
 
-        public void Clear()
+        public void Empty()
         {
             CheckInitialized();
 

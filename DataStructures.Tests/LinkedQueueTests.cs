@@ -44,8 +44,8 @@ namespace Tests.QueueTests
         }
 
         [Test]
-        public void ClearTest() {
-            LinkedQueue2.Clear();
+        public void EmptyTest() {
+            LinkedQueue2.Empty();
             Assert.True(LinkedQueue2.IsEmpty());
         }
 
@@ -61,12 +61,12 @@ namespace Tests.QueueTests
 
         private void EmptyStackEmptyDel()
         {
-            LinkedQueue2.Clear();
-            LinkedQueue2.Clear();
+            LinkedQueue2.Empty();
+            LinkedQueue2.Empty();
         }
 
         private void EmptyStackPopDel() {
-            LinkedQueue2.Clear();
+            LinkedQueue2.Empty();
             LinkedQueue2.Dequeue();
         }
     }

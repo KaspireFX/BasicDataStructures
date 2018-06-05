@@ -20,7 +20,7 @@ namespace DataStructures.Lists {
 
         T Remove(int Position);
 
-        void Clear();
+        void Empty();
 
         T Replace(int Position, T NewEntry);
 

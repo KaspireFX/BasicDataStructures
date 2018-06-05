@@ -22,6 +22,6 @@ namespace DataStructures.Queues {
 
         bool IsEmpty();
 
-        void Clear();
+        void Empty();
     }
 }

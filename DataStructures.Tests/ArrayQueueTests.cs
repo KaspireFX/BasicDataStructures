@@ -43,8 +43,8 @@ namespace Tests.QueueTests
         }
 
         [Test]
-        public void ClearTest() {
-            ArrayQueue.Clear();
+        public void EmptyTest() {
+            ArrayQueue.Empty();
             Assert.True(ArrayQueue.IsEmpty());
         }
 
@@ -60,12 +60,12 @@ namespace Tests.QueueTests
 
         private void EmptyStackEmptyDel()
         {
-            ArrayQueue.Clear();
-            ArrayQueue.Clear();
+            ArrayQueue.Empty();
+            ArrayQueue.Empty();
         }
 
         private void EmptyStackPopDel() {
-            ArrayQueue.Clear();
+            ArrayQueue.Empty();
             ArrayQueue.Dequeue();
         }
     }
