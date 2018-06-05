@@ -29,7 +29,11 @@ Most of these Data Structures acutally exist already in the C# libraries and are
     - [x] Array based Implementation (Circular Array)
     - [x] Linked Chain based Implementation (Non-Circular Chain)
 - [ ] Lists
+    - [ ] Array Based Implementation
+    - [ ] Linked Chain based Implementation
 - [ ] Iterators
+    - [ ] Iterator for ArrayList
+    - [ ] Iterator for LinkedList
 - [ ] Trees
 - [ ] AVL Trees
 - [ ] Good Comments !!
