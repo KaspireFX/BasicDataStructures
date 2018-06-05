@@ -95,6 +95,10 @@ namespace DataStructures.Lists {
         {
             CheckInitialization();
 
+            if(IsEmpty()) {
+                throw new InvalidOperationException("Cannot empty an already empty list.");
+            }
+
             int Index = Count;
             while(Index >= 1) {
                 List[Index] = default(E);
@@ -146,7 +150,7 @@ namespace DataStructures.Lists {
             CheckInitialization();
 
             if(IsEmpty()) {
-                throw new InvalidOperationException("ArrayList is Empty.");
+                throw new InvalidOperationException("Array is Empty.");
             }
 
             E TempData = default(E);
@@ -193,13 +197,13 @@ namespace DataStructures.Lists {
         {
             CheckInitialization();
 
-            E[] TempArray = new E[List.Length - 1];
+            E[] TempArray = new E[Count];
 
             if(IsEmpty()) {
                 return TempArray;
             }
 
-            for(int i = 1; i < List.Length; i++) {
+            for(int i = 1; i < Count + 1; i++) {
                 TempArray[i - 1] = List[i];
             }
 
