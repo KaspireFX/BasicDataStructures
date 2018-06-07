@@ -209,5 +209,44 @@ namespace DataStructures.Lists {
 
             return TempArray;
         }
+
+        public IIteratorInterface<E> Iterator => new ArrayListIterator(this);
+
+        internal class ArrayListIterator : IIteratorInterface<E>
+        {
+            internal int Index;
+            internal ArrayList<E> AList;
+
+            internal ArrayListIterator(ArrayList<E> ParentList) {
+                this.AList = ParentList;
+                Index = 1;
+            }
+
+            public bool HasNext()
+            {
+                return AList.IndexOf(Index) != null;
+            }
+
+            public bool IsEqualTo(E Entry)
+            {
+                return AList.IndexOf(Index).Equals(Entry);
+            }
+
+            public E Next()
+            {
+                if(HasNext()) {
+                    E Data = AList.IndexOf(Index);
+                    Index++;
+                    return Data;
+                } else {
+                    throw new InvalidOperationException("Iterator is at end of List, cannot iterator further.");
+                }
+            }
+
+            public void Reset()
+            {
+                Index = 1;
+            }
+        }
     }
 }
