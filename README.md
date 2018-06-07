@@ -31,9 +31,9 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 - [x] Lists
     - [x] Array Based Implementation
     - [x] Linked Chain based Implementation
-- [ ] Iterators
-    - [ ] Iterator for ArrayList
-    - [ ] Iterator for LinkedList
+- [x] Iterators
+    - [x] Iterator for ArrayList
+    - [x] Iterator for LinkedList
 - [ ] Trees
 - [ ] AVL Trees
 - [ ] Good Comments !!
@@ -56,10 +56,7 @@ If you are on .Net Core (2.1) you can `git clone` this repository, change direct
 - [Windows](https://www.microsoft.com/net/learn/get-started/windows)
 - [MacOS](https://www.microsoft.com/net/learn/get-started/macos)
 - [Ubuntu/Debian/Fedora/CentOS/OpenSUSE/SLES](https://www.microsoft.com/net/learn/get-started/linux/ubuntu18-04)
-- ArchLinux:
-```
-# pacman -S dotnet-sdk
-```   
+- ArchLinux: ```# pacman -S dotnet-sdk```   
 
 ```
 $ git clone https://github.com/KaspireFX/BasicDataStructures.git
