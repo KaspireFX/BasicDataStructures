@@ -15,9 +15,20 @@ namespace TestConsole
 {
     class Program
     {
+        private static LinkedList<string> LList = new LinkedList<string>();
+        private static IIteratorInterface<string> Iterator;
         public static void Main(string[] args)
         {
+            LList.Add("Bill");
+            LList.Add("Phil");
+            LList.Add("Frank");
+            LList.Add("Bobby");
+            LList.Add(3, "Phillip");
+            string[] Array = LList.ToArray();
 
+            foreach(string s in Array) {
+                Console.WriteLine(s);
+            }
         }
     }
 }
