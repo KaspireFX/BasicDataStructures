@@ -43,7 +43,7 @@ namespace DataStructures.Lists {
                     FrontNode = NewNode;
                 } else {
                     Node Before = GetNodeAt(Position - 1);
-                    Node After = GetNodeAt(Position + 1);
+                    Node After = GetNodeAt(Position);
                     NewNode.Next = After;
                     Before.Next = NewNode;
                 }
@@ -57,6 +57,10 @@ namespace DataStructures.Lists {
 
         public void Empty()
         {
+            if(IsEmpty()) {
+                throw new InvalidOperationException("List is already Empty.");
+            }
+
             FrontNode = null;
             Count = 0;
         }
@@ -123,17 +127,18 @@ namespace DataStructures.Lists {
                     Data = FrontNode.Data;
                     FrontNode = NewNode;
                 } else {
-                    Node Before = GetNodeAt(Position);
+                    Node Before = GetNodeAt(Position - 1);
                     Node NodeToReplace = Before.Next;
-                    Node After = NodeToReplace.Next;
 
                     Data = NodeToReplace.Data;
 
                     Before.Next = NewNode;
-                    NewNode.Next = After;
+                    if(NodeToReplace.Next != null) {
+                        Node After = NodeToReplace.Next;
+                        NewNode.Next = After;
+                    }
                 }
 
-                Count--;
                 return Data;
             } else {
                 throw new IndexOutOfRangeException("Illegal position for Replace.");
@@ -152,6 +157,8 @@ namespace DataStructures.Lists {
 
             return Array;
         }
+
+        public IIteratorInterface<E> Iterator => new LinkedListIterator(this);
 
         private Node GetNodeAt(int Index) {
             Node CurrentNode = FrontNode;
@@ -182,6 +189,44 @@ namespace DataStructures.Lists {
                 this.Data = NodeData;
             }
 
+        }
+
+        internal class LinkedListIterator : IIteratorInterface<E>
+        {
+            internal LinkedList<E> MyList;
+            internal bool WasNextCalled = false;
+            internal Node CurrentNode;
+
+            internal LinkedListIterator(LinkedList<E> ParentList) {
+                this.MyList = ParentList;
+                CurrentNode = MyList.FrontNode;
+            }
+
+            public bool HasNext()
+            {
+                return CurrentNode != null;
+            }
+
+            public bool IsEqualTo(E Entry)
+            {
+                return CurrentNode.Data.Equals(Entry);
+            }
+
+            public E Next()
+            {
+                if(HasNext()) {
+                    E Data = CurrentNode.Data;
+                    CurrentNode = CurrentNode.Next;
+                    return Data;
+                } else {
+                    throw new InvalidOperationException("Iterator is at end of list, cannot iterate further.");
+                }
+            }
+
+            public void Reset()
+            {
+                CurrentNode = MyList.FrontNode;
+            }
         }
     }
 }
