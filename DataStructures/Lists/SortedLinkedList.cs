@@ -119,8 +119,6 @@ namespace DataStructures.Lists {
             return Array;
         }
 
-        public IIteratorInterface<E> Iterator => new SortedLinkedListIterator(this);
-
         private Node GetNodeAt(int Index) {
             Node CurrentNode = FrontNode;
 
@@ -130,6 +128,25 @@ namespace DataStructures.Lists {
 
             return CurrentNode;
         }
+
+        public static bool Search(E[] Array, int Beginning, int End, E Entry) {
+            int Mid = Beginning + (End - Beginning) / 2;
+            bool Found;
+
+            if(Beginning > End) {
+                Found = false;
+            } else if(Entry.Equals(Array[Mid])) {
+                Found = true;
+            } else if(Entry.CompareTo(Array[Mid]) < 0) {
+                Found = Search(Array, Beginning, Mid - 1, Entry);
+            } else {
+                Found = Search(Array, Mid + 1, End, Entry);
+            }
+
+            return Found;
+        }
+
+        public IIteratorInterface<E> Iterator => new SortedLinkedListIterator(this);
 
         internal class Node {
             internal Node Next { get; set; }
