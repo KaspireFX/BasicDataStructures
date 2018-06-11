@@ -15,19 +15,19 @@ namespace TestConsole
 {
     class Program
     {
-        private static LinkedList<string> LList = new LinkedList<string>();
-        private static IIteratorInterface<string> Iterator;
         public static void Main(string[] args)
         {
-            LList.Add("Bill");
-            LList.Add("Phil");
-            LList.Add("Frank");
-            LList.Add("Bobby");
-            LList.Add(3, "Phillip");
-            string[] Array = LList.ToArray();
+            SortedLinkedList<int> SLList = new SortedLinkedList<int>();
+            
+            for(int i = 50; i > 0; i--) {
+                SLList.Add(i);
+            }
+            SLList.Remove(20);
 
-            foreach(string s in Array) {
-                Console.WriteLine(s);
+            int[] Array = SLList.ToArray();
+
+            foreach(int i in Array) {
+                Console.WriteLine(i);
             }
         }
     }

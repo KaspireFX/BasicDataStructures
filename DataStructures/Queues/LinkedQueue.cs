@@ -25,7 +25,7 @@ namespace DataStructures.Queues {
             Initialized = true;
         }
 
-        private void CheckInitialized() {
+        private void CheckInitialization() {
             if(!Initialized) {
                 throw new InvalidOperationException("LinkedQueue was not Initialized correctly.");
             }
@@ -33,7 +33,7 @@ namespace DataStructures.Queues {
 
         public void Empty()
         {
-            CheckInitialized();
+            CheckInitialization();
 
             if(IsEmpty()) {
                 throw new InvalidOperationException("LinkedQueue is Empty.");
@@ -46,7 +46,7 @@ namespace DataStructures.Queues {
 
         public E Dequeue()
         {
-            CheckInitialized();
+            CheckInitialization();
 
             if(IsEmpty()) {
                 throw new InvalidOperationException("LinkedQueue is Empty.");
@@ -61,7 +61,7 @@ namespace DataStructures.Queues {
 
         public void Enqueue(E NewEntry)
         {
-            CheckInitialized();
+            CheckInitialization();
 
             Node NewNode = new Node(NewEntry);
 
@@ -78,7 +78,7 @@ namespace DataStructures.Queues {
 
         public E GetFront()
         {
-            CheckInitialized();
+            CheckInitialization();
 
             if(IsEmpty()) {
                 throw new InvalidOperationException("LinkedQueue is Empty.");
@@ -89,7 +89,7 @@ namespace DataStructures.Queues {
 
         public bool IsEmpty()
         {
-            CheckInitialized();
+            CheckInitialization();
 
             return (Count == 0) && (FrontNode == null && BackNode == null);
         }

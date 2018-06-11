@@ -31,7 +31,7 @@ namespace DataStructures.Queues {
             Initialized = true;
         }
 
-        private void CheckInitialized() {
+        private void CheckInitialization() {
             if(!Initialized) {
                 throw new InvalidOperationException("Queue not Initialized properly.");
             }
@@ -60,7 +60,7 @@ namespace DataStructures.Queues {
 
         public void Empty()
         {
-            CheckInitialized();
+            CheckInitialization();
 
             if(IsEmpty()) {
                 throw new InvalidOperationException("ArrayQueue is Empty.");
@@ -79,7 +79,7 @@ namespace DataStructures.Queues {
 
         public E Dequeue()
         {
-            CheckInitialized();
+            CheckInitialization();
 
             if(IsEmpty()) {
                 throw new InvalidOperationException("ArrayQueue is Empty.");
@@ -95,7 +95,7 @@ namespace DataStructures.Queues {
 
         public void Enqueue(E NewEntry)
         {
-            CheckInitialized();
+            CheckInitialization();
 
             if(CheckAvailablility()) {
                 Queue[BackIndex] = NewEntry;
@@ -110,7 +110,7 @@ namespace DataStructures.Queues {
 
         public E GetFront()
         {
-            CheckInitialized();
+            CheckInitialization();
 
             if(IsEmpty()) {
                 throw new InvalidOperationException("ArrayQueue is Empty.");
@@ -121,7 +121,7 @@ namespace DataStructures.Queues {
 
         public bool IsEmpty()
         {
-            CheckInitialized();
+            CheckInitialization();
             
             return FrontIndex == BackIndex;
         }

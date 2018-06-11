@@ -14,14 +14,24 @@ namespace DataStructures.Lists {
     {
         private Node FrontNode;
         public int Count { get; private set; }
+        private bool Initialized = false;
 
         public LinkedList() {
             FrontNode = null;
             Count = 0;
+            Initialized = true;
+        }
+
+        private void CheckInitialization() {
+            if(!Initialized) {
+                throw new InvalidOperationException("LinkedList was not Initialized correctly.");
+            }
         }
 
         public void Add(E Entry)
         {
+            CheckInitialization();
+
             Node NewNode = new Node(Entry);
 
             if(IsEmpty()) {
@@ -36,6 +46,8 @@ namespace DataStructures.Lists {
 
         public void Add(int Position, E Entry)
         {
+            CheckInitialization();
+
             Node NewNode = new Node(Entry);
 
             if((Position >= 1) && (Position <= Count)) {
@@ -57,6 +69,8 @@ namespace DataStructures.Lists {
 
         public void Empty()
         {
+            CheckInitialization();
+
             if(IsEmpty()) {
                 throw new InvalidOperationException("List is already Empty.");
             }
@@ -67,6 +81,8 @@ namespace DataStructures.Lists {
 
         public bool Contains(E AnEntry)
         {
+            CheckInitialization();
+
             Node TraversalNode = FrontNode;
 
             for(int i = 1; i < Count; i++) {
@@ -82,6 +98,8 @@ namespace DataStructures.Lists {
 
         public E IndexOf(int Position)
         {
+            CheckInitialization();
+
             if((Position >= 1) && (Position <= Count)) {
                 return GetNodeAt(Position).Data;
             } else {
@@ -91,11 +109,15 @@ namespace DataStructures.Lists {
 
         public bool IsEmpty()
         {
+            CheckInitialization();
+
             return FrontNode == null;
         }
 
         public E Remove(int Position)
         {
+            CheckInitialization();
+
             E Data = default(E);
 
             if((Position >= 1) && (Position <= Count)) {
@@ -119,6 +141,8 @@ namespace DataStructures.Lists {
 
         public E Replace(int Position, E NewEntry)
         {
+            CheckInitialization();
+
             E Data = default(E);
             Node NewNode = new Node(NewEntry);
 
@@ -147,6 +171,8 @@ namespace DataStructures.Lists {
 
         public E[] ToArray()
         {
+            CheckInitialization();
+            
             E[] Array = new E[Count];
             Node TraversalNode = FrontNode;
 
