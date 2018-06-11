@@ -56,15 +56,6 @@ namespace DataStructures.Lists {
             }
         }
 
-        private void FillIn(int NewPosition)
-        {
-            int Index = NewPosition;
-            while(Index < (List.Length - 1)) {
-                List[Index] = List[Index + 1];
-                Index++;
-            }
-        }
-
         public void Add(E Entry)
         {
             Add(Count + 1, Entry);
@@ -159,8 +150,8 @@ namespace DataStructures.Lists {
                 TempData = List[Position];
 
                 if(Position <= Count) {
-                    List[Position] = default(E);
-                    FillIn(Position);
+                    List[Position] = List[Count - 1];
+                    List[Count - 1] = default(E);
                 } else {
                     List[Position] = default(E);
                 }
