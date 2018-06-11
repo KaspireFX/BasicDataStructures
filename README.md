@@ -31,6 +31,7 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 - [x] Lists
     - [x] Array Based Implementation
     - [x] Linked Chain based Implementation
+    - [ ] Sorted List
 - [x] Iterators
     - [x] Iterator for ArrayList
     - [x] Iterator for LinkedList
