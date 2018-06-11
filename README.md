@@ -61,13 +61,7 @@ If you are on .Net Core (2.1) you can `git clone` this repository, change direct
 - ArchLinux: ```# pacman -S dotnet-sdk```   
 
 ```
-$ git clone https://github.com/KaspireFX/BasicDataStructures.git
-```
-
-or from gitlab (**More updated**)
-
-```
-$ git clone https://gitlab.com/Kaspire/BasicDataStructures.git
+$ git clone https://gitlab.com/jchand99/BasicDataStructures.git
 ```
 
 You will also need to do a project restore before you can do anything else.
