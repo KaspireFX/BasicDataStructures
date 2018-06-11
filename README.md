@@ -112,8 +112,9 @@ And you are finished! You should be able to start using the Data Structures in y
 Example:
 ```c#
 using System;
-using BasicDataStructures.Stacks;
-using BasicDataStructures.Queues;
+using DataStructures.Stacks;
+using DataStructures.Queues;
+using DataStructures.Lists;
 
 namespace Example {
 
@@ -121,13 +122,22 @@ namespace Example {
 
         private static ArrayStack<string> Stack = new ArrayStack<string>(5);
         private static LinkedQueue<int> Queue = new LinkedQueue<int>();
+        private static ArrayList<double> List = new ArrayList<double>(10);
+        private static IIteratorInterface<double> ListIterator;
 
         public static void Main(String[] args) {
             Stack.Push("Bob");
             Queue.Enqueue(1);
+            List.add(2.0);
+            ListIterator = List.Iterator;
 
             Console.WriteLine("Stack Top: {0}", Stack.Peek());
-            Console.WriteLine("Front: {0}", Queue.GetFront());
+            Console.WriteLine("Queue Front: {0}", Queue.GetFront());
+
+            Console.WriteLine("List:\n");
+            while(ListIterator.HasNext()) {
+                Console.WriteLine(ListIterator.Next());
+            }
         }
     }
 }
