@@ -7,9 +7,11 @@ Date of Comment: 06:01:2018
  */
  
 using System;
+using System.Diagnostics;
 using DataStructures.Stacks;
 using DataStructures.Lists;
 using DataStructures.Queues;
+using DataStructures.Dictionaries;
 
 namespace TestConsole
 {
@@ -17,18 +19,16 @@ namespace TestConsole
     {
         public static void Main(string[] args)
         {
-            SortedLinkedList<int> SLList = new SortedLinkedList<int>();
-            
-            for(int i = 50; i > 0; i--) {
-                SLList.Add(i);
-            }
-            SLList.Remove(20);
+            ArrayDictionary<int, string> Dictionary = new ArrayDictionary<int, string>();
 
-            int[] Array = SLList.ToArray();
-
-            foreach(int i in Array) {
-                Console.WriteLine(i);
-            }
+            Dictionary.Add(1, "Phil");
+            Dictionary.Add(50, "Bob");
+            Dictionary.Add(9, "Frank");
+            Dictionary.Add(4, "Bobby");
+            Console.WriteLine("Contians {0}: {1}", 4, Dictionary.Contains(4));
+            Console.WriteLine("Removed: {0}", Dictionary.Remove(50));
+            Dictionary.Empty();
+            Console.WriteLine("Empty: {0}", Dictionary.IsEmpty());
         }
     }
 }
