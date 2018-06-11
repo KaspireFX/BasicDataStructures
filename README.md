@@ -78,7 +78,7 @@ $ cd DataStructures/
 $ dotnet pack
 ```
 
-copy this .nupkg file into your project's directory (I recommend the /bin/Debug/ directory but it can be anywhere you are comfortable with) and add these lines into your project's .csproj file:
+this will create a .nupkg file in BasicDataStructures/DataStructures/bin/Debug/, copy this .nupkg file into your project's directory (I recommend the /bin/Debug/ directory but it can be anywhere you are comfortable with) and add these lines into your project's .csproj file:
 
 ```
 <PropertyGroup>
