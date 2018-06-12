@@ -29,17 +29,23 @@ Most of these Data Structures acutally exist already in the C# libraries and are
     - [x] Array based Implementation (Circular Array)
     - [x] Linked Chain based Implementation (Non-Circular Chain)
 - [x] Lists
-    - [x] Array Based Implementation
+    - [x] Array based Implementation
     - [x] Linked Chain based Implementation
     - [x] Sorted List (LinkedList)
     - [ ] Sorted List (ArrayList)
 - [x] Iterators
     - [x] Iterator for ArrayList
     - [x] Iterator for LinkedList
+    - [ ] Iterator for ArrayDictionary
+    - [ ] Iterator for LinkedDictionary
+- [ ] Dictionaries
+    - [ ] Array based Implementation
+    - [ ] Linked Chain based Implementation
 - [ ] Trees
 - [ ] AVL Trees
 - [ ] Good Comments !!
 - [ ] Anything else I decide to add
+    - [ ] Constructor for both List implementations: Takes in array and creates list of that types
 
 ## How can I use these Data Structures in my project?
 
