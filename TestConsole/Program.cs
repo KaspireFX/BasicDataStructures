@@ -17,6 +17,7 @@ namespace TestConsole
 {
     class Program
     {
+        private static Stopwatch sw = new Stopwatch();
         public static void Main(string[] args)
         {
             LinkedDictionary<int, string> Dictionary = new LinkedDictionary<int, string>();
@@ -25,8 +26,12 @@ namespace TestConsole
             Dictionary.Add(3, "Bob");
             Dictionary.Add(4, "Bobby");
             Dictionary.Add(2, "Phillis");
+            sw.Start();
+            Dictionary.Remove(3);
+            sw.Stop();
             Console.WriteLine("GetValue: {0}", Dictionary.GetValue(2));
-            Console.WriteLine("GetValue: {0}", Dictionary.GetValue(60));
+            Console.WriteLine("GetValue: {0}", Dictionary.GetValue(4));
+            Console.WriteLine(sw.Elapsed);
         }
     }
 }
