@@ -57,8 +57,10 @@ namespace DataStructures.Dictionaries {
                 if(NodeWithKey != null) {
                     NodeWithKey.Data = Entry;
                 } else {
+                    Node Copy = BackNode;
                     BackNode.Next = NewNode;
                     BackNode = NewNode;
+                    BackNode.Previous = Copy;
                 }
             }
         }
@@ -101,6 +103,7 @@ namespace DataStructures.Dictionaries {
 
         public E Remove(K Key)
         {
+            // TODO: This method is really messy, may figure out a way to clean up this code later.
             CheckInitialization();
 
             if(IsEmpty()) {
@@ -108,31 +111,48 @@ namespace DataStructures.Dictionaries {
             }
 
             Node NodeWithKey = LocateNode(Key);
+            E Data = default(E);
 
-            if(NodeWithKey.Equals(FrontNode)) {
-                FrontNode = FrontNode.Next;
-            } else if(NodeWithKey.Equals(BackNode)) {
-                BackNode = null;
-            } else {
-                //TODO: Fix me
+            if(NodeWithKey == null) {
+                throw new ArgumentOutOfRangeException("Key does not exist in dictionary, nothing removed.");
             }
+
+            if(NodeWithKey == FrontNode) {
+                Data = FrontNode.Data;
+                FrontNode = FrontNode.Next;
+                FrontNode.Previous = null;
+            } else if(NodeWithKey == BackNode) {
+                BackNode = BackNode.Previous;
+            } else {
+                Data = NodeWithKey.Data;
+                Node Before = NodeWithKey.Previous;
+                Node After = NodeWithKey.Next;
+
+                Before.Next = After;
+                After.Previous = Before;
+            }
+
+            return Data;
         }
 
         internal class Node {
             internal K Key { get; }
             internal E Data { get; set; }
             internal Node Next { get; set; }
+            internal Node Previous { get; set; }
 
             internal Node() {
                 this.Key = default(K);
                 this.Data = default(E);
                 this.Next = null;
+                this.Previous = null;
             }
 
             internal Node(K NodeKey, E NodeData) {
                 this.Key = NodeKey;
                 this.Data = NodeData;
                 this.Next = null;
+                this.Previous = null;
             }
         }
     }
