@@ -19,16 +19,14 @@ namespace TestConsole
     {
         public static void Main(string[] args)
         {
-            ArrayDictionary<int, string> Dictionary = new ArrayDictionary<int, string>();
+            LinkedDictionary<int, string> Dictionary = new LinkedDictionary<int, string>();
 
-            Dictionary.Add(1, "Phil");
-            Dictionary.Add(50, "Bob");
-            Dictionary.Add(9, "Frank");
+            Dictionary.Add(2, "Phil");
+            Dictionary.Add(3, "Bob");
             Dictionary.Add(4, "Bobby");
-            Console.WriteLine("Contians {0}: {1}", 4, Dictionary.Contains(4));
-            Console.WriteLine("Removed: {0}", Dictionary.Remove(50));
-            Dictionary.Empty();
-            Console.WriteLine("Empty: {0}", Dictionary.IsEmpty());
+            Dictionary.Add(2, "Phillis");
+            Console.WriteLine("GetValue: {0}", Dictionary.GetValue(2));
+            Console.WriteLine("GetValue: {0}", Dictionary.GetValue(60));
         }
     }
 }
