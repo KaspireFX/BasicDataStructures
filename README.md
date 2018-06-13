@@ -38,14 +38,14 @@ Most of these Data Structures acutally exist already in the C# libraries and are
     - [x] Iterator for LinkedList
     - [ ] Iterator for ArrayDictionary
     - [ ] Iterator for LinkedDictionary
-- [ ] Dictionaries
-    - [ ] Array based Implementation
-    - [ ] Linked Chain based Implementation
+- [x] Dictionaries
+    - [x] Array based Implementation
+    - [x] Linked Chain based Implementation
 - [ ] Trees
 - [ ] AVL Trees
 - [ ] Good Comments !!
 - [ ] Anything else I decide to add
-    - [ ] Constructor for both List implementations: Takes in array and creates list of that types
+    - [ ] Constructor for both List implementations: Takes in array and creates list of that type
 
 ## How can I use these Data Structures in my project?
 
