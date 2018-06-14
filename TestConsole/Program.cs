@@ -20,18 +20,16 @@ namespace TestConsole
         private static Stopwatch sw = new Stopwatch();
         public static void Main(string[] args)
         {
-            LinkedDictionary<int, string> Dictionary = new LinkedDictionary<int, string>();
+            SortedArrayList<int> List = new SortedArrayList<int>();
 
-            Dictionary.Add(2, "Phil");
-            Dictionary.Add(3, "Bob");
-            Dictionary.Add(4, "Bobby");
-            Dictionary.Add(2, "Phillis");
-            sw.Start();
-            Dictionary.Remove(3);
-            sw.Stop();
-            Console.WriteLine("GetValue: {0}", Dictionary.GetValue(2));
-            Console.WriteLine("GetValue: {0}", Dictionary.GetValue(4));
-            Console.WriteLine(sw.Elapsed);
+            List.Add(6);
+            List.Add(2);
+            List.Add(5);
+            List.Add(1);
+            int[] Array = List.ToArray();
+            foreach(int i in Array) {
+                Console.WriteLine(i);
+            }
         }
     }
 }
