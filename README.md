@@ -32,12 +32,12 @@ Most of these Data Structures acutally exist already in the C# libraries and are
     - [x] Array based Implementation
     - [x] Linked Chain based Implementation
     - [x] Sorted List (LinkedList)
-    - [ ] Sorted List (ArrayList)
+    - [x] Sorted List (ArrayList)
 - [x] Iterators
     - [x] Iterator for ArrayList
     - [x] Iterator for LinkedList
-    - [ ] Iterator for ArrayDictionary
-    - [ ] Iterator for LinkedDictionary
+    - [x] Iterator for ArrayDictionary
+    - [x] Iterator for LinkedDictionary
 - [x] Dictionaries
     - [x] Array based Implementation
     - [x] Linked Chain based Implementation
