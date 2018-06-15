@@ -64,6 +64,7 @@ namespace DataStructures.Dictionaries {
                     BackNode.Previous = Copy;
                 }
             }
+            Count++;
         }
 
         public bool Contains(K Key)
