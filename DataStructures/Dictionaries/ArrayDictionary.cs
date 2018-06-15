@@ -7,6 +7,7 @@ Date of Comment: 06:11:2018
  */
 
 using System;
+using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
@@ -125,6 +126,12 @@ namespace DataStructures.Dictionaries {
             }
         }
 
+        public IIteratorInterface<E> ValueIterator => new ArrayDictionaryValueIterator(this);
+
+        private Entry<K, E> GetValue(int Index) {
+            return Dictionary[Index];
+        }
+
         internal class Entry<S, T> {
             internal S Key { get; }
             internal T Data { get; set; }
@@ -132,6 +139,43 @@ namespace DataStructures.Dictionaries {
             internal Entry(S SearchKey, T Data) {
                 this.Key = SearchKey;
                 this.Data = Data;
+            }
+        }
+
+        internal class ArrayDictionaryValueIterator : IIteratorInterface<E>
+        {
+            internal int Index;
+            internal ArrayDictionary<K, E> AList;
+
+            internal ArrayDictionaryValueIterator(ArrayDictionary<K, E> ParentList) {
+                this.AList = ParentList;
+                Index = 0;
+            }
+
+            public bool HasNext()
+            {
+                return AList.GetValue(Index) != null;
+            }
+
+            public bool IsEqualTo(E Entry)
+            {
+                return AList.GetValue(Index).Data.Equals(Entry);
+            }
+
+            public E Next()
+            {
+                if(HasNext()) {
+                    E Data = AList.GetValue(Index).Data;
+                    Index++;
+                    return Data;
+                } else {
+                    throw new InvalidOperationException("Iterator is at end of List, cannot iterator further.");
+                }
+            }
+
+            public void Reset()
+            {
+                Index = 1;
             }
         }
     }
