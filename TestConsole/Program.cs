@@ -21,30 +21,15 @@ namespace TestConsole
         private static Stopwatch sw = new Stopwatch();
         public static void Main(string[] args)
         {
-            LinkedDictionary<int, string> LDictionary = new LinkedDictionary<int, string>();
-            ArrayDictionary<int, string> ArrayDictionary = new ArrayDictionary<int, string>();
+            SortedArrayDictionary<int, string> SDictionary = new SortedArrayDictionary<int, string>();
 
-            LDictionary.Add(8, "Phil");
-            LDictionary.Add(7, "bob");
-            LDictionary.Add(3, "mango");
-            LDictionary.Add(5, "bobby");
-
-            ArrayDictionary.Add(8, "bnana");
-            ArrayDictionary.Add(7, "f");
-            ArrayDictionary.Add(3, "d");
-            ArrayDictionary.Add(5, "b");
-
-            IIteratorInterface<string> Iterator1 = LDictionary.ValueIterator;
-            IIteratorInterface<string> Iterator2 = ArrayDictionary.ValueIterator;
-
-            while(Iterator1.HasNext()) {
-                Console.WriteLine(Iterator1.Next());
-            }
-
-            
-            while(Iterator2.HasNext()) {
-                Console.WriteLine(Iterator2.Next());
-            }
+            SDictionary.Add(5, "bob");
+            SDictionary.Add(3, "Phil");
+            SDictionary.Add(4, "Frank");
+            SDictionary.Add(7, "Pop");
+            SDictionary.Remove(4);
+            SDictionary.Remove(7);
+            SDictionary.Remove(3);
         }
     }
 }
