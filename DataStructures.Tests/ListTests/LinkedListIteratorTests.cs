@@ -9,6 +9,7 @@ Date of Comment: 06:11:2018
 using System;
 using NUnit.Framework;
 using DataStructures.Lists;
+using DataStructures.Iterator;
 
 namespace Tests.ListIteratorTests
 {

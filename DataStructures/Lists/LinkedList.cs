@@ -7,6 +7,7 @@ Date of Comment: 06:05:2018
  */
 
 using System;
+using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
