@@ -26,6 +26,12 @@ namespace DataStructures.Dictionaries {
             Initialized = true;
         }
 
+        private void CheckInitialization() {
+            if(!Initialized) {
+                throw new InvalidOperationException("SortedArrayDictionary not initialized properly.");
+            }
+        }
+
         private void MakeRoom(int Position) {
             for(int i = Count; i >= Position; i--) {
                 Dictionary[i + 1] = Dictionary[i];
@@ -42,6 +48,8 @@ namespace DataStructures.Dictionaries {
         }
 
         public void Add(K Key, E Entry) {
+            CheckInitialization();
+
             Add(0, Key, Entry);
             Count++;
         }
@@ -72,6 +80,8 @@ namespace DataStructures.Dictionaries {
 
         public bool Contains(K Key)
         {
+            CheckInitialization();
+
             if(IsEmpty()) {
                 throw new InvalidOperationException("Cannot check Contains in empty dictionary.");
             }
@@ -87,6 +97,8 @@ namespace DataStructures.Dictionaries {
 
         public void Empty()
         {
+            CheckInitialization();
+
             if(IsEmpty()) {
                 throw new InvalidOperationException("Cannot empty already empty dictionary.");
             }
@@ -98,6 +110,8 @@ namespace DataStructures.Dictionaries {
 
         public E GetValue(K Key)
         {
+            CheckInitialization();
+
             if(IsEmpty()) {
                 throw new InvalidOperationException("Cannot GetValue from empty Dictionary.");
             }
@@ -112,11 +126,15 @@ namespace DataStructures.Dictionaries {
 
         public bool IsEmpty()
         {
+            CheckInitialization();
+
             return Count == 0;
         }
 
         public E Remove(K Key)
         {
+            CheckInitialization();
+            
             if(IsEmpty()) {
                 throw new InvalidOperationException("Cannot remove from empty dictionary.");
             }
