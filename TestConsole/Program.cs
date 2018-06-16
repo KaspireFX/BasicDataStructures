@@ -21,7 +21,7 @@ namespace TestConsole
         private static Stopwatch sw = new Stopwatch();
         public static void Main(string[] args)
         {
-            SortedArrayDictionary<int, string> SDictionary = new SortedArrayDictionary<int, string>();
+            SortedLinkedDictionary<int, string> SDictionary = new SortedLinkedDictionary<int, string>();
 
             SDictionary.Add(5, "bob");
             SDictionary.Add(3, "Phil");
