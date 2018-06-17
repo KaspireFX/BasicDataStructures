@@ -7,19 +7,16 @@ Date of Comment: 06:03:2018
  */
 
 using System;
-using NUnit.Framework;
 using DataStructures.Lists;
+using NUnit.Framework;
 
-namespace Tests.ListTests
-{
-    public class LinkedListTests
-    {
+namespace Tests.ListTests {
+    public class LinkedListTests {
 
         LinkedList<string> LList = new LinkedList<string>();
 
         [SetUp]
-        public void Setup()
-        {
+        public void Setup() {
             LList.Add("Bill");
             LList.Add("Phil");
             LList.Add("Frank");
@@ -82,8 +79,7 @@ namespace Tests.ListTests
             Assert.Throws<InvalidOperationException>(new TestDelegate(EmptyListEmptyDel));
         }
 
-        private void EmptyListRemoveTestDel()
-        {
+        private void EmptyListRemoveTestDel() {
             LList.Empty();
             LList.Remove(2);
         }

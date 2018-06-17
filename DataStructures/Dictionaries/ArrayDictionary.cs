@@ -11,15 +11,13 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
-    public class ArrayDictionary<K, E> : IDictionaryInterface<K, E>
-    {
+    public class ArrayDictionary<K, E> : IDictionaryInterface<K, E> {
         private Entry<K, E>[] Dictionary;
         private bool Initialized = false;
         private static int DEFAULT_CAPACITY = 10;
         public int Count { get; private set; }
 
-        public ArrayDictionary() : this(DEFAULT_CAPACITY) {
-        }
+        public ArrayDictionary(): this(DEFAULT_CAPACITY) {}
 
         public ArrayDictionary(int Capacity) {
             Dictionary = new Entry<K, E>[Capacity];
@@ -28,14 +26,14 @@ namespace DataStructures.Dictionaries {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("LinkedList was not Initialized correctly.");
             }
         }
 
         private int LocateIndex(K Key) {
             int Index = 0;
-            while((Index < Count) && (!Key.Equals(Dictionary[Index].Key))) {
+            while ((Index < Count)&& (!Key.Equals(Dictionary[Index].Key))) {
                 Index++;
             }
 
@@ -44,27 +42,27 @@ namespace DataStructures.Dictionaries {
 
         private void ReSize() {
             Entry<K, E>[] Temp = new Entry<K, E>[Dictionary.Length * 2];
-            for(int i = 0; i < Dictionary.Length; i++) {
+            for (int i = 0; i < Dictionary.Length; i++) {
                 Temp[i] = Dictionary[i];
             }
 
             Dictionary = Temp;
         }
 
-        public void Add(K Key, E Entry)
-        {
+        public void Add(K Key, E Entry) {
+
             CheckInitialization();
 
-            if(Count == Dictionary.Length) {
+            if (Count == Dictionary.Length) {
                 ReSize();
             }
 
-            if((Key == null) || (Entry == null)) {
+            if ((Key == null)|| (Entry == null)) {
                 throw new ArgumentOutOfRangeException("Cannot have null Key or Entry.");
             } else {
                 int KeyIndex = LocateIndex(Key);
 
-                if(KeyIndex < Count) {
+                if (KeyIndex < Count) {
                     Dictionary[KeyIndex].Data = Entry;
                 } else {
                     Dictionary[Count] = new Entry<K, E>(Key, Entry);
@@ -73,49 +71,44 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        public bool Contains(K Key)
-        {
+        public bool Contains(K Key) {
             CheckInitialization();
 
-            return LocateIndex(Key) < Count;
+            return LocateIndex(Key)< Count;
         }
 
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Dictionary already empty.");
             }
 
             int Index = Count;
-            for(int i = 0; i < Index; i++) {
+            for (int i = 0; i < Index; i++) {
                 Dictionary[i] = null;
                 Count--;
             }
         }
 
-        public E GetValue(K Key)
-        {
+        public E GetValue(K Key) {
             CheckInitialization();
 
             return Dictionary[LocateIndex(Key)].Data;
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             CheckInitialization();
 
             return Count == 0;
         }
 
-        public E Remove(K Key)
-        {
+        public E Remove(K Key) {
             CheckInitialization();
 
             int KeyIndex = LocateIndex(Key);
 
-            if(KeyIndex < Count) {
+            if (KeyIndex < Count) {
                 E Data = Dictionary[KeyIndex].Data;
                 Dictionary[KeyIndex] = Dictionary[Count - 1];
                 Dictionary[Count - 1] = null;
@@ -142,8 +135,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        internal class ArrayDictionaryValueIterator : IIteratorInterface<E>
-        {
+        internal class ArrayDictionaryValueIterator : IIteratorInterface<E> {
             internal int Index;
             internal ArrayDictionary<K, E> AList;
 
@@ -152,19 +144,16 @@ namespace DataStructures.Dictionaries {
                 Index = 0;
             }
 
-            public bool HasNext()
-            {
-                return AList.GetValue(Index) != null;
+            public bool HasNext() {
+                return AList.GetValue(Index)!= null;
             }
 
-            public bool IsEqualTo(E Entry)
-            {
+            public bool IsEqualTo(E Entry) {
                 return AList.GetValue(Index).Data.Equals(Entry);
             }
 
-            public E Next()
-            {
-                if(HasNext()) {
+            public E Next() {
+                if (HasNext()) {
                     E Data = AList.GetValue(Index).Data;
                     Index++;
                     return Data;
@@ -173,8 +162,7 @@ namespace DataStructures.Dictionaries {
                 }
             }
 
-            public void Reset()
-            {
+            public void Reset() {
                 Index = 0;
             }
         }

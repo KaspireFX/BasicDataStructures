@@ -7,19 +7,16 @@ Date of Comment: 06:03:2018
  */
 
 using System;
-using NUnit.Framework;
 using DataStructures.Stacks;
+using NUnit.Framework;
 
-namespace Tests.StackTests
-{
-    public class ArrayStackTests
-    {
+namespace Tests.StackTests {
+    public class ArrayStackTests {
 
         ArrayStack<string> ArrayStack = new ArrayStack<string>(5);
 
         [SetUp]
-        public void Setup()
-        {
+        public void Setup() {
             ArrayStack.Push("Phil");
             ArrayStack.Push("Bob");
             ArrayStack.Push("Marry");
@@ -70,8 +67,7 @@ namespace Tests.StackTests
             Assert.Throws<InvalidOperationException>(new TestDelegate(EmptyStackEmptyDel));
         }
 
-        private void EmptyStackEmptyDel()
-        {
+        private void EmptyStackEmptyDel() {
             ArrayStack.Empty();
             ArrayStack.Empty();
         }

@@ -11,8 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
-    public class LinkedDictionary<K, E> : IDictionaryInterface<K, E>
-    {
+    public class LinkedDictionary<K, E> : IDictionaryInterface<K, E> {
         private Node FrontNode;
         private Node BackNode;
         bool Initialized = false;
@@ -26,7 +25,7 @@ namespace DataStructures.Dictionaries {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("LinkedDictionary was not initialized correctly.");
             }
         }
@@ -34,9 +33,9 @@ namespace DataStructures.Dictionaries {
         private Node LocateNode(K Key) {
             Node TraversalNode = FrontNode;
 
-            while(!Key.Equals(TraversalNode.Key)) {
+            while (!Key.Equals(TraversalNode.Key)) {
                 TraversalNode = TraversalNode.Next;
-                if(TraversalNode == null) {
+                if (TraversalNode == null) {
                     break;
                 }
             }
@@ -44,18 +43,17 @@ namespace DataStructures.Dictionaries {
             return TraversalNode;
         }
 
-        public void Add(K Key, E Entry)
-        {
+        public void Add(K Key, E Entry) {
             CheckInitialization();
             Node NewNode = new Node(Key, Entry);
 
-            if(FrontNode == null) {
+            if (FrontNode == null) {
                 FrontNode = NewNode;
                 BackNode = FrontNode;
             } else {
                 Node NodeWithKey = LocateNode(Key);
 
-                if(NodeWithKey != null) {
+                if (NodeWithKey != null) {
                     NodeWithKey.Data = Entry;
                 } else {
                     Node Copy = BackNode;
@@ -67,63 +65,58 @@ namespace DataStructures.Dictionaries {
             Count++;
         }
 
-        public bool Contains(K Key)
-        {
+        public bool Contains(K Key) {
             CheckInitialization();
 
-            return LocateNode(Key) != null;
+            return LocateNode(Key)!= null;
         }
 
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
             FrontNode = null;
             BackNode = null;
         }
 
-        public E GetValue(K Key)
-        {
+        public E GetValue(K Key) {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Cannot get a value from an empty dictionary.");
             }
 
             Node NodeWithKey = LocateNode(Key);
-            if(NodeWithKey != null) {
+            if (NodeWithKey != null) {
                 return NodeWithKey.Data;
             } else {
                 throw new ArgumentOutOfRangeException("Key does not exist in dictionary.");
             }
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             return FrontNode == null;
         }
 
-        public E Remove(K Key)
-        {
+        public E Remove(K Key) {
             // TODO: This method is really messy, may figure out a way to clean up this code later.
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Cannot remove entry from empty dictionary.");
             }
 
             Node NodeWithKey = LocateNode(Key);
             E Data = default(E);
 
-            if(NodeWithKey == null) {
+            if (NodeWithKey == null) {
                 throw new ArgumentOutOfRangeException("Key does not exist in dictionary, nothing removed.");
             }
 
-            if(NodeWithKey == FrontNode) {
+            if (NodeWithKey == FrontNode) {
                 Data = FrontNode.Data;
                 FrontNode = FrontNode.Next;
                 FrontNode.Previous = null;
-            } else if(NodeWithKey == BackNode) {
+            } else if (NodeWithKey == BackNode) {
                 BackNode = BackNode.Previous;
             } else {
                 Data = NodeWithKey.Data;
@@ -160,8 +153,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        internal class LinkedDictionaryValueIterator : IIteratorInterface<E>
-        {
+        internal class LinkedDictionaryValueIterator : IIteratorInterface<E> {
             internal LinkedDictionary<K, E> MyDictionary;
             internal bool WasNextCalled = false;
             internal Node CurrentNode;
@@ -170,19 +162,16 @@ namespace DataStructures.Dictionaries {
                 this.MyDictionary = ParentDictionary;
                 CurrentNode = MyDictionary.FrontNode;
             }
-            public bool HasNext()
-            {
+            public bool HasNext() {
                 return CurrentNode != null;
             }
 
-            public bool IsEqualTo(E Entry)
-            {
+            public bool IsEqualTo(E Entry) {
                 return CurrentNode.Data.Equals(Entry);
             }
 
-            public E Next()
-            {
-                if(HasNext()) {
+            public E Next() {
+                if (HasNext()) {
                     E Data = CurrentNode.Data;
                     CurrentNode = CurrentNode.Next;
                     return Data;
@@ -191,8 +180,7 @@ namespace DataStructures.Dictionaries {
                 }
             }
 
-            public void Reset()
-            {
+            public void Reset() {
                 CurrentNode = MyDictionary.FrontNode;
             }
         }

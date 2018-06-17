@@ -7,21 +7,18 @@ Date of Comment: 06:16:2018
  */
 
 using System;
-using NUnit.Framework;
 using DataStructures.Dictionaries;
 using DataStructures.Iterator;
+using NUnit.Framework;
 
-namespace Tests.DictionaryIteratorTests
-{
-    public class ArrayDictionaryIteratorTests
-    {
+namespace Tests.DictionaryIteratorTests {
+    public class ArrayDictionaryIteratorTests {
 
         ArrayDictionary<int, string> ADictionary = new ArrayDictionary<int, string>();
         IIteratorInterface<string> Iterator;
 
         [SetUp]
-        public void Setup()
-        {
+        public void Setup() {
             ADictionary.Add(6, "Bill");
             ADictionary.Add(7, "Phil");
             ADictionary.Add(12, "Frank");
@@ -33,7 +30,7 @@ namespace Tests.DictionaryIteratorTests
         public void TestNext() {
             Assert.AreEqual("Bill", Iterator.Next());
         }
-        
+
         [Test]
         public void TestHasNext() {
             Assert.True(Iterator.HasNext());

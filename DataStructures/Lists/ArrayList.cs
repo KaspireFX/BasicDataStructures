@@ -11,16 +11,14 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
-    public class ArrayList<E> : IListInterface<E>
-    {
+    public class ArrayList<E> : IListInterface<E> {
         private E[] List;
         private const int DEFAULT_CAPACITY = 10;
         private bool Initialized = false;
 
         public int Count { get; private set; }
 
-        public ArrayList() : this(DEFAULT_CAPACITY) {
-        }
+        public ArrayList(): this(DEFAULT_CAPACITY) {}
 
         public ArrayList(int Capacity) {
             List = new E[Capacity];
@@ -29,14 +27,14 @@ namespace DataStructures.Lists {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("ArrayList was not Initialized correctly.");
             }
         }
 
         private void ReSize() {
             E[] Temp = new E[List.Length * 2];
-            for(int i = 0; i < List.Length; i++) {
+            for (int i = 0; i < List.Length; i++) {
                 Temp[i] = List[i];
             }
 
@@ -44,31 +42,28 @@ namespace DataStructures.Lists {
         }
 
         private bool CheckAvailability() {
-            if((Count + 1) >= List.Length) {
+            if ((Count + 1)>= List.Length) {
                 return false;
             }
             return true;
         }
 
-        private void MakeRoom(int NewPosition)
-        {
-            for(int i = Count; i >= NewPosition; i--) {
+        private void MakeRoom(int NewPosition) {
+            for (int i = Count; i >= NewPosition; i--) {
                 List[i + 1] = List[i];
             }
         }
 
-        public void Add(E Entry)
-        {
+        public void Add(E Entry) {
             Add(Count + 1, Entry);
         }
 
-        public void Add(int Position, E Entry)
-        {
+        public void Add(int Position, E Entry) {
             CheckInitialization();
 
-            if(CheckAvailability()) {
-                if((Position >= 1) && (Position <= List.Length)) {
-                    if(Position <= Count) {
+            if (CheckAvailability()) {
+                if ((Position >= 1)&& (Position <= List.Length)) {
+                    if (Position <= Count) {
                         MakeRoom(Position);
                     }
                     List[Position] = Entry;
@@ -82,75 +77,69 @@ namespace DataStructures.Lists {
             }
         }
 
-
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Cannot empty an already empty list.");
             }
 
             int Index = Count;
-            while(Index >= 1) {
+            while (Index >= 1) {
                 List[Index] = default(E);
                 Index--;
             }
             Count = Index;
         }
 
-        public bool Contains(E AnEntry)
-        {
+        public bool Contains(E AnEntry) {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("ArrayList is Empty.");
             }
 
-            for(int i = 1; i < List.Length; i++) {
-                if(List[i].Equals(AnEntry)) {
+            for (int i = 1; i < List.Length; i++) {
+                if (List[i].Equals(AnEntry)) {
                     return true;
                 }
             }
             return false;
         }
 
-        public E IndexOf(int Position)
-        {
+        public E IndexOf(int Position) {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("ArrayList is Empty.");
             }
 
-            if((Position >= 1) && (Position <= List.Length)) {
+            if ((Position >= 1)&& (Position <= List.Length)) {
                 return List[Position];
             } else {
                 throw new ArgumentOutOfRangeException("Position is outside of List bounds.");
             }
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             CheckInitialization();
 
             return Count == 0;
         }
 
-        public E Remove(int Position)
-        {
+        public E Remove(int Position) {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Array is Empty.");
             }
 
             E TempData = default(E);
 
-            if((Position >= 1) && (Position <= List.Length)) {
+            if ((Position >= 1)&& (Position <= List.Length)) {
                 TempData = List[Position];
 
-                if(Position <= Count) {
+                if (Position <= Count) {
                     List[Position] = List[Count - 1];
                     List[Count - 1] = default(E);
                 } else {
@@ -164,18 +153,16 @@ namespace DataStructures.Lists {
             return TempData;
         }
 
-
-        public E Replace(int Position, E NewEntry)
-        {
+        public E Replace(int Position, E NewEntry) {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("ArrayList is Empty.");
             }
 
             E TempData = default(E);
 
-            if((Position >= 1) && (Position <= List.Length)) {
+            if ((Position >= 1)&& (Position <= List.Length)) {
                 TempData = List[Position];
                 List[Position] = NewEntry;
             } else {
@@ -185,17 +172,16 @@ namespace DataStructures.Lists {
             return TempData;
         }
 
-        public E[] ToArray()
-        {
+        public E[] ToArray() {
             CheckInitialization();
 
             E[] TempArray = new E[Count];
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 return TempArray;
             }
 
-            for(int i = 1; i < Count + 1; i++) {
+            for (int i = 1; i < Count + 1; i++) {
                 TempArray[i - 1] = List[i];
             }
 
@@ -204,8 +190,7 @@ namespace DataStructures.Lists {
 
         public IIteratorInterface<E> Iterator => new ArrayListIterator(this);
 
-        internal class ArrayListIterator : IIteratorInterface<E>
-        {
+        internal class ArrayListIterator : IIteratorInterface<E> {
             internal int Index;
             internal ArrayList<E> AList;
 
@@ -214,19 +199,16 @@ namespace DataStructures.Lists {
                 Index = 1;
             }
 
-            public bool HasNext()
-            {
-                return AList.IndexOf(Index) != null;
+            public bool HasNext() {
+                return AList.IndexOf(Index)!= null;
             }
 
-            public bool IsEqualTo(E Entry)
-            {
+            public bool IsEqualTo(E Entry) {
                 return AList.IndexOf(Index).Equals(Entry);
             }
 
-            public E Next()
-            {
-                if(HasNext()) {
+            public E Next() {
+                if (HasNext()) {
                     E Data = AList.IndexOf(Index);
                     Index++;
                     return Data;
@@ -235,8 +217,7 @@ namespace DataStructures.Lists {
                 }
             }
 
-            public void Reset()
-            {
+            public void Reset() {
                 Index = 1;
             }
         }

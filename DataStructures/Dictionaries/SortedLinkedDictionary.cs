@@ -11,8 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
-    public class SortedLinkedDictionary<K, E> : IDictionaryInterface<K, E> where K : IComparable
-    {
+    public class SortedLinkedDictionary<K, E> : IDictionaryInterface<K, E> where K : IComparable {
         private Node FrontNode;
         private bool Initialized = false;
         public int Count { get; private set; }
@@ -24,7 +23,7 @@ namespace DataStructures.Dictionaries {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("SortedLinkedDictionary was not intialized correctly.");
             }
         }
@@ -35,9 +34,8 @@ namespace DataStructures.Dictionaries {
             Count++;
         }
 
-        private Node Add(Node CurrentNode, K Key, E Entry)
-        {
-            if((CurrentNode == null) || (Key.CompareTo(CurrentNode.Key)) <= 0) {
+        private Node Add(Node CurrentNode, K Key, E Entry) {
+            if ((CurrentNode == null)|| (Key.CompareTo(CurrentNode.Key))<= 0) {
                 CurrentNode = new Node(CurrentNode, Key, Entry);
             } else {
                 Node After = Add(CurrentNode.Next, Key, Entry);
@@ -47,17 +45,16 @@ namespace DataStructures.Dictionaries {
             return CurrentNode;
         }
 
-        public bool Contains(K Key)
-        {
+        public bool Contains(K Key) {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Cannot check Contains, dictionary is empty.");
             }
 
             Node TraversalNode = FrontNode;
-            for(int i = 0; i < Count; i++) {
-                if(TraversalNode.Key.Equals(Key)) {
+            for (int i = 0; i < Count; i++) {
+                if (TraversalNode.Key.Equals(Key)) {
                     return true;
                 }
             }
@@ -65,31 +62,29 @@ namespace DataStructures.Dictionaries {
             return false;
         }
 
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
             FrontNode = null;
         }
 
-        public E GetValue(K Key)
-        {
+        public E GetValue(K Key) {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Cannot get value from empty dictionary.");
             }
 
             Node TraversalNode = FrontNode;
             E Data = default(E);
-            for(int i = 0; i < Count; i++) {
-                if(Key.Equals(TraversalNode.Key)) {
+            for (int i = 0; i < Count; i++) {
+                if (Key.Equals(TraversalNode.Key)) {
                     Data = TraversalNode.Data;
                 }
                 TraversalNode = TraversalNode.Next;
             }
 
-            if(Data == null) {
+            if (Data == null) {
                 throw new ArgumentOutOfRangeException("Key does not exist in dictionary.");
             } else {
                 return Data;
@@ -97,35 +92,33 @@ namespace DataStructures.Dictionaries {
 
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             CheckInitialization();
 
             return FrontNode == null;
         }
 
-        public E Remove(K Key)
-        {
+        public E Remove(K Key) {
             // TODO: This method is also really gross, will probably go back and make more efficient
             // soon.
             CheckInitialization();
-            
-            if(IsEmpty()) {
+
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Cannot remove frmo empty dictionary.");
             }
 
             E Data = default(E);
             bool Removed = false;
 
-            if(FrontNode.Key.Equals(Key)) {
+            if (FrontNode.Key.Equals(Key)) {
                 Data = FrontNode.Data;
                 FrontNode = FrontNode.Next;
             } else {
                 Node TraversalNode = FrontNode;
-                while(!Removed) {
-                    if(TraversalNode.Next == null) {
+                while (!Removed) {
+                    if (TraversalNode.Next == null) {
                         throw new ArgumentOutOfRangeException("Key does not exist in dictionary, nothing Removed.");
-                    } else if(TraversalNode.Next.Key.Equals(Key)) {
+                    } else if (TraversalNode.Next.Key.Equals(Key)) {
                         Data = TraversalNode.Next.Data;
                         Node NextNode = TraversalNode.Next;
                         TraversalNode.Next = NextNode.Next;
@@ -166,8 +159,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        internal class LinkedDictionaryValueIterator : IIteratorInterface<E>
-        {
+        internal class LinkedDictionaryValueIterator : IIteratorInterface<E> {
             internal SortedLinkedDictionary<K, E> MyDictionary;
             internal bool WasNextCalled = false;
             internal Node CurrentNode;
@@ -176,19 +168,16 @@ namespace DataStructures.Dictionaries {
                 this.MyDictionary = ParentDictionary;
                 CurrentNode = MyDictionary.FrontNode;
             }
-            public bool HasNext()
-            {
+            public bool HasNext() {
                 return CurrentNode != null;
             }
 
-            public bool IsEqualTo(E Entry)
-            {
+            public bool IsEqualTo(E Entry) {
                 return CurrentNode.Data.Equals(Entry);
             }
 
-            public E Next()
-            {
-                if(HasNext()) {
+            public E Next() {
+                if (HasNext()) {
                     E Data = CurrentNode.Data;
                     CurrentNode = CurrentNode.Next;
                     return Data;
@@ -197,8 +186,7 @@ namespace DataStructures.Dictionaries {
                 }
             }
 
-            public void Reset()
-            {
+            public void Reset() {
                 CurrentNode = MyDictionary.FrontNode;
             }
         }

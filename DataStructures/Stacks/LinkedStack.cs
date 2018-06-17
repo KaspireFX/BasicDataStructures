@@ -10,8 +10,7 @@ using System;
 
 namespace DataStructures.Stacks {
 
-    public class LinkedStack<E> : IStackInterface<E>
-    {
+    public class LinkedStack<E> : IStackInterface<E> {
         private Node TopNode;
 
         public int Count { get; private set; }
@@ -24,16 +23,15 @@ namespace DataStructures.Stacks {
             Initialized = true;
         }
 
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Stack is Empty.");
             }
 
             Node tmp;
-            while(Count != 0) {
+            while (Count != 0) {
                 tmp = TopNode.Previous;
                 TopNode = null;
                 TopNode = tmp;
@@ -41,40 +39,36 @@ namespace DataStructures.Stacks {
             }
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             CheckInitialization();
 
             return TopNode == null;
         }
 
-        public E Peek()
-        {
+        public E Peek() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Stack is Empty.");
             }
 
             return TopNode.Data;
         }
 
-        public E Pop()
-        {
+        public E Pop() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("Stack is Empty.");
             }
-            
+
             E tmp = TopNode.Data;
             TopNode = TopNode.Previous;
             Count--;
             return tmp;
         }
 
-        public void Push(E element)
-        {
+        public void Push(E element) {
             CheckInitialization();
 
             Node NewNode = new Node();
@@ -85,13 +79,13 @@ namespace DataStructures.Stacks {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("Linked Stack not initialized properly.");
             }
         }
 
         internal class Node {
-            internal Node Previous { get; set;}
+            internal Node Previous { get; set; }
             internal E Data { get; set; }
 
             internal Node() {

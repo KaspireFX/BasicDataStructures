@@ -10,8 +10,7 @@ using System;
 
 namespace DataStructures.Queues {
 
-    public class ArrayQueue<E> : IQueueInterface<E>
-    {
+    public class ArrayQueue<E> : IQueueInterface<E> {
         private E[] Queue;
         private bool Initialized;
         private int FrontIndex;
@@ -20,8 +19,7 @@ namespace DataStructures.Queues {
 
         public int Count { get; private set; }
 
-        public ArrayQueue() : this(DEFAULT_CAPACITY) {
-        }
+        public ArrayQueue(): this(DEFAULT_CAPACITY) {}
 
         public ArrayQueue(int capacity) {
             Queue = new E[capacity];
@@ -32,14 +30,13 @@ namespace DataStructures.Queues {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("Queue not Initialized properly.");
             }
         }
 
-        private bool CheckAvailablility()
-        {
-            if((BackIndex + 1) == FrontIndex) {
+        private bool CheckAvailablility() {
+            if ((BackIndex + 1)== FrontIndex) {
                 return false;
             }
             return true;
@@ -49,7 +46,7 @@ namespace DataStructures.Queues {
             E[] NewQueue = new E[Queue.Length * 2];
             int Indexer = FrontIndex;
 
-            while((Indexer % Queue.Length) != BackIndex) {
+            while ((Indexer % Queue.Length)!= BackIndex) {
                 NewQueue[Indexer] = Queue[Indexer % Queue.Length];
                 Indexer++;
             }
@@ -58,17 +55,16 @@ namespace DataStructures.Queues {
             BackIndex = Indexer;
         }
 
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("ArrayQueue is Empty.");
             }
 
             int Indexer = FrontIndex;
 
-            while((Indexer % Queue.Length) != BackIndex) {
+            while ((Indexer % Queue.Length)!= BackIndex) {
                 Queue[Indexer % Queue.Length] = default(E);
                 Indexer++;
                 Count--;
@@ -77,29 +73,27 @@ namespace DataStructures.Queues {
             BackIndex = 1;
         }
 
-        public E Dequeue()
-        {
+        public E Dequeue() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("ArrayQueue is Empty.");
             }
 
             E Temp = Queue[FrontIndex];
             Queue[FrontIndex] = default(E);
-            FrontIndex = (FrontIndex + 1) % Queue.Length;
+            FrontIndex = (FrontIndex + 1)% Queue.Length;
 
             Count--;
             return Temp;
         }
 
-        public void Enqueue(E NewEntry)
-        {
+        public void Enqueue(E NewEntry) {
             CheckInitialization();
 
-            if(CheckAvailablility()) {
+            if (CheckAvailablility()) {
                 Queue[BackIndex] = NewEntry;
-                BackIndex = (BackIndex + 1) % Queue.Length;
+                BackIndex = (BackIndex + 1)% Queue.Length;
             } else {
                 ReSize();
                 Enqueue(NewEntry);
@@ -108,21 +102,19 @@ namespace DataStructures.Queues {
             Count++;
         }
 
-        public E GetFront()
-        {
+        public E GetFront() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("ArrayQueue is Empty.");
             }
 
             return Queue[FrontIndex];
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             CheckInitialization();
-            
+
             return FrontIndex == BackIndex;
         }
     }

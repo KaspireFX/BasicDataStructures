@@ -7,8 +7,8 @@ Date of Comment: 06:15:18
 */
 
 using System;
-using NUnit.Framework;
 using DataStructures.Dictionaries;
+using NUnit.Framework;
 
 namespace Tests.DictionaryTests {
 

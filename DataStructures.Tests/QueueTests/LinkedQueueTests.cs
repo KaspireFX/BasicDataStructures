@@ -7,19 +7,16 @@ Date of Comment: 06:03:2018
  */
 
 using System;
-using NUnit.Framework;
 using DataStructures.Queues;
+using NUnit.Framework;
 
-namespace Tests.QueueTests
-{
-    public class LinkedQueueTests
-    {
+namespace Tests.QueueTests {
+    public class LinkedQueueTests {
 
         private LinkedQueue<string> LinkedQueue2;
 
         [SetUp]
-        public void Setup()
-        {
+        public void Setup() {
             LinkedQueue2 = new LinkedQueue<string>();
             LinkedQueue2.Enqueue("Phil");
             LinkedQueue2.Enqueue("Bob");
@@ -59,8 +56,7 @@ namespace Tests.QueueTests
             Assert.Throws<InvalidOperationException>(new TestDelegate(EmptyStackEmptyDel));
         }
 
-        private void EmptyStackEmptyDel()
-        {
+        private void EmptyStackEmptyDel() {
             LinkedQueue2.Empty();
             LinkedQueue2.Empty();
         }

@@ -10,8 +10,7 @@ using System;
 
 namespace DataStructures.Queues {
 
-    public class LinkedQueue<E> : IQueueInterface<E>
-    {
+    public class LinkedQueue<E> : IQueueInterface<E> {
         private Node FrontNode;
         private Node BackNode;
         private bool Initialized = false;
@@ -26,16 +25,15 @@ namespace DataStructures.Queues {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("LinkedQueue was not Initialized correctly.");
             }
         }
 
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("LinkedQueue is Empty.");
             }
 
@@ -44,11 +42,10 @@ namespace DataStructures.Queues {
             Count = 0;
         }
 
-        public E Dequeue()
-        {
+        public E Dequeue() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("LinkedQueue is Empty.");
             }
 
@@ -59,13 +56,12 @@ namespace DataStructures.Queues {
             return TempData;
         }
 
-        public void Enqueue(E NewEntry)
-        {
+        public void Enqueue(E NewEntry) {
             CheckInitialization();
 
             Node NewNode = new Node(NewEntry);
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 FrontNode = NewNode;
                 BackNode = FrontNode;
             } else {
@@ -76,22 +72,20 @@ namespace DataStructures.Queues {
             Count++;
         }
 
-        public E GetFront()
-        {
+        public E GetFront() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("LinkedQueue is Empty.");
             }
 
             return FrontNode.Data;
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             CheckInitialization();
 
-            return (Count == 0) && (FrontNode == null && BackNode == null);
+            return (Count == 0)&& (FrontNode == null && BackNode == null);
         }
 
         internal class Node {
@@ -112,6 +106,6 @@ namespace DataStructures.Queues {
                 this.Next = NextNode;
                 this.Data = NodeData;
             }
-        }   
+        }
     }
 }

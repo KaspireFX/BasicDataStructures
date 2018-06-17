@@ -11,8 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
-    public class LinkedList<E> : IListInterface<E>
-    {
+    public class LinkedList<E> : IListInterface<E> {
         private Node FrontNode;
         public int Count { get; private set; }
         private bool Initialized = false;
@@ -24,18 +23,17 @@ namespace DataStructures.Lists {
         }
 
         private void CheckInitialization() {
-            if(!Initialized) {
+            if (!Initialized) {
                 throw new InvalidOperationException("LinkedList was not Initialized correctly.");
             }
         }
 
-        public void Add(E Entry)
-        {
+        public void Add(E Entry) {
             CheckInitialization();
 
             Node NewNode = new Node(Entry);
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 FrontNode = NewNode;
             } else {
                 Node LastNode = GetNodeAt(Count);
@@ -45,14 +43,13 @@ namespace DataStructures.Lists {
             Count++;
         }
 
-        public void Add(int Position, E Entry)
-        {
+        public void Add(int Position, E Entry) {
             CheckInitialization();
 
             Node NewNode = new Node(Entry);
 
-            if((Position >= 1) && (Position <= Count)) {
-                if(Position == 1) {
+            if ((Position >= 1)&& (Position <= Count)) {
+                if (Position == 1) {
                     FrontNode = NewNode;
                 } else {
                     Node Before = GetNodeAt(Position - 1);
@@ -68,11 +65,10 @@ namespace DataStructures.Lists {
             }
         }
 
-        public void Empty()
-        {
+        public void Empty() {
             CheckInitialization();
 
-            if(IsEmpty()) {
+            if (IsEmpty()) {
                 throw new InvalidOperationException("List is already Empty.");
             }
 
@@ -80,14 +76,13 @@ namespace DataStructures.Lists {
             Count = 0;
         }
 
-        public bool Contains(E AnEntry)
-        {
+        public bool Contains(E AnEntry) {
             CheckInitialization();
 
             Node TraversalNode = FrontNode;
 
-            for(int i = 1; i < Count; i++) {
-                if(TraversalNode.Data.Equals(AnEntry)) {
+            for (int i = 1; i < Count; i++) {
+                if (TraversalNode.Data.Equals(AnEntry)) {
                     return true;
                 }
 
@@ -97,32 +92,29 @@ namespace DataStructures.Lists {
             return false;
         }
 
-        public E IndexOf(int Position)
-        {
+        public E IndexOf(int Position) {
             CheckInitialization();
 
-            if((Position >= 1) && (Position <= Count)) {
+            if ((Position >= 1)&& (Position <= Count)) {
                 return GetNodeAt(Position).Data;
             } else {
                 throw new IndexOutOfRangeException("Illegal position for IndexOf.");
             }
         }
 
-        public bool IsEmpty()
-        {
+        public bool IsEmpty() {
             CheckInitialization();
 
             return FrontNode == null;
         }
 
-        public E Remove(int Position)
-        {
+        public E Remove(int Position) {
             CheckInitialization();
 
             E Data = default(E);
 
-            if((Position >= 1) && (Position <= Count)) {
-                if(Position == 1) {
+            if ((Position >= 1)&& (Position <= Count)) {
+                if (Position == 1) {
                     Data = FrontNode.Data;
                     FrontNode = FrontNode.Next;
                 } else {
@@ -140,15 +132,14 @@ namespace DataStructures.Lists {
             }
         }
 
-        public E Replace(int Position, E NewEntry)
-        {
+        public E Replace(int Position, E NewEntry) {
             CheckInitialization();
 
             E Data = default(E);
             Node NewNode = new Node(NewEntry);
 
-            if((Position >= 1) && (Position <= Count)) {
-                if(Position == 1) {
+            if ((Position >= 1)&& (Position <= Count)) {
+                if (Position == 1) {
                     Data = FrontNode.Data;
                     FrontNode = NewNode;
                 } else {
@@ -158,7 +149,7 @@ namespace DataStructures.Lists {
                     Data = NodeToReplace.Data;
 
                     Before.Next = NewNode;
-                    if(NodeToReplace.Next != null) {
+                    if (NodeToReplace.Next != null) {
                         Node After = NodeToReplace.Next;
                         NewNode.Next = After;
                     }
@@ -170,14 +161,13 @@ namespace DataStructures.Lists {
             }
         }
 
-        public E[] ToArray()
-        {
+        public E[] ToArray() {
             CheckInitialization();
-            
+
             E[] Array = new E[Count];
             Node TraversalNode = FrontNode;
 
-            for(int i = 0; i < Count; i++) {
+            for (int i = 0; i < Count; i++) {
                 Array[i] = TraversalNode.Data;
                 TraversalNode = TraversalNode.Next;
             }
@@ -190,7 +180,7 @@ namespace DataStructures.Lists {
         private Node GetNodeAt(int Index) {
             Node CurrentNode = FrontNode;
 
-            for(int i = 1; i < Index; i++) {
+            for (int i = 1; i < Index; i++) {
                 CurrentNode = CurrentNode.Next;
             }
 
@@ -218,8 +208,7 @@ namespace DataStructures.Lists {
 
         }
 
-        internal class LinkedListIterator : IIteratorInterface<E>
-        {
+        internal class LinkedListIterator : IIteratorInterface<E> {
             internal LinkedList<E> MyList;
             internal bool WasNextCalled = false;
             internal Node CurrentNode;
@@ -229,19 +218,16 @@ namespace DataStructures.Lists {
                 CurrentNode = MyList.FrontNode;
             }
 
-            public bool HasNext()
-            {
+            public bool HasNext() {
                 return CurrentNode != null;
             }
 
-            public bool IsEqualTo(E Entry)
-            {
+            public bool IsEqualTo(E Entry) {
                 return CurrentNode.Data.Equals(Entry);
             }
 
-            public E Next()
-            {
-                if(HasNext()) {
+            public E Next() {
+                if (HasNext()) {
                     E Data = CurrentNode.Data;
                     CurrentNode = CurrentNode.Next;
                     return Data;
@@ -250,8 +236,7 @@ namespace DataStructures.Lists {
                 }
             }
 
-            public void Reset()
-            {
+            public void Reset() {
                 CurrentNode = MyList.FrontNode;
             }
         }
