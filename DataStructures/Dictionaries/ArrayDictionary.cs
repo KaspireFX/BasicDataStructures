@@ -175,7 +175,7 @@ namespace DataStructures.Dictionaries {
 
             public void Reset()
             {
-                Index = 1;
+                Index = 0;
             }
         }
     }
