@@ -68,7 +68,7 @@ namespace DataStructures.Dictionaries {
         public bool Contains(K Key) {
             CheckInitialization();
 
-            return LocateNode(Key)!= null;
+            return LocateNode(Key) != null;
         }
 
         public void Empty() {

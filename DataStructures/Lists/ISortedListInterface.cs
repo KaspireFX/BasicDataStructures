@@ -13,7 +13,7 @@ namespace DataStructures.Lists {
     public interface ISortedListInterface<T> {
 
         int Count { get; }
-        
+
         void Add(T Entry);
 
         T Remove(int Position);

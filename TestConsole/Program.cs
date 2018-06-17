@@ -1,4 +1,4 @@
-﻿/*
+/*
 Author: Jacob Chandler
 File: Program.cs
 Version: 1.0.1
@@ -18,7 +18,6 @@ namespace TestConsole {
     class Program {
         private static Stopwatch sw = new Stopwatch();
 
-        public static void Main(string[] args) {
-        }
+        public static void Main(string[] args) {}
     }
 }

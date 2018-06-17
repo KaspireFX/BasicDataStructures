@@ -16,7 +16,7 @@ namespace DataStructures.Lists {
         private const int DEFAULT_CAPACITY = 10;
         public int Count { get; private set; }
 
-        public SortedArrayList(): this(DEFAULT_CAPACITY) {}
+        public SortedArrayList() : this(DEFAULT_CAPACITY) {}
 
         public SortedArrayList(int Capacity) {
             List = new E[Capacity];
@@ -60,10 +60,10 @@ namespace DataStructures.Lists {
                 ReSize();
             } else if (IsEmpty()) {
                 List[Count + 1] = Entry;
-            } else if (Entry.CompareTo(List[Position])<= 0) {
+            } else if (Entry.CompareTo(List[Position]) <= 0) {
                 MakeSpace(Position);
                 List[Position] = Entry;
-            } else if (Entry.CompareTo(List[Position])> 0) {
+            } else if (Entry.CompareTo(List[Position]) > 0) {
                 Add(Position + 1, Entry);
             } else {
                 List[Position] = Entry;
@@ -101,7 +101,7 @@ namespace DataStructures.Lists {
         public E IndexOf(int Position) {
             CheckInitialization();
 
-            if ((Position >= 1)&& (Position <= Count)) {
+            if ((Position >= 1) && (Position <= Count)) {
                 return List[Position];
             } else {
                 throw new ArgumentOutOfRangeException("Invalid position for IndexOf.");
@@ -121,7 +121,7 @@ namespace DataStructures.Lists {
                 throw new InvalidOperationException("Unable to remove from empty list.");
             }
 
-            if ((Position >= 1)&& (Position <= Count)) {
+            if ((Position >= 1) && (Position <= Count)) {
                 E Data = List[Position];
 
                 for (int i = Position; i < Count; i++) {

@@ -35,7 +35,7 @@ namespace DataStructures.Dictionaries {
         }
 
         private Node Add(Node CurrentNode, K Key, E Entry) {
-            if ((CurrentNode == null)|| (Key.CompareTo(CurrentNode.Key))<= 0) {
+            if ((CurrentNode == null) || (Key.CompareTo(CurrentNode.Key)) <= 0) {
                 CurrentNode = new Node(CurrentNode, Key, Entry);
             } else {
                 Node After = Add(CurrentNode.Next, Key, Entry);

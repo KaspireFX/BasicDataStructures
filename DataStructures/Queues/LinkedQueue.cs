@@ -85,7 +85,7 @@ namespace DataStructures.Queues {
         public bool IsEmpty() {
             CheckInitialization();
 
-            return (Count == 0)&& (FrontNode == null && BackNode == null);
+            return (Count == 0) && (FrontNode == null && BackNode == null);
         }
 
         internal class Node {

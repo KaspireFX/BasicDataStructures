@@ -13,7 +13,7 @@ namespace DataStructures.Lists {
     public interface IListInterface<T> {
 
         int Count { get; }
-        
+
         void Add(T Entry);
 
         void Add(int Position, T Entry);

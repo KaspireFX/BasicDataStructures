@@ -36,7 +36,7 @@ namespace DataStructures.Lists {
         }
 
         private Node Add(E Entry, Node CurrentNode) {
-            if ((CurrentNode == null)|| (Entry.CompareTo(CurrentNode.Data)<= 0)) {
+            if ((CurrentNode == null) || (Entry.CompareTo(CurrentNode.Data) <= 0)) {
                 CurrentNode = new Node(CurrentNode, Entry);
             } else {
                 Node After = Add(Entry, CurrentNode.Next);
@@ -86,7 +86,7 @@ namespace DataStructures.Lists {
                 throw new InvalidOperationException("Cannot remove from empty list.");
             }
 
-            if ((Position >= 1)&& (Position <= Count)) {
+            if ((Position >= 1) && (Position <= Count)) {
                 Node Before = GetNodeAt(Position - 1);
                 Node NodeToRemove = Before.Next;
                 Node After = NodeToRemove.Next;
@@ -123,14 +123,14 @@ namespace DataStructures.Lists {
         }
 
         public static bool Search(E[] Array, int Beginning, int End, E Entry) {
-            int Mid = Beginning + (End - Beginning)/ 2;
+            int Mid = Beginning + (End - Beginning) / 2;
             bool Found;
 
             if (Beginning > End) {
                 Found = false;
             } else if (Entry.Equals(Array[Mid])) {
                 Found = true;
-            } else if (Entry.CompareTo(Array[Mid])< 0) {
+            } else if (Entry.CompareTo(Array[Mid]) < 0) {
                 Found = Search(Array, Beginning, Mid - 1, Entry);
             } else {
                 Found = Search(Array, Mid + 1, End, Entry);

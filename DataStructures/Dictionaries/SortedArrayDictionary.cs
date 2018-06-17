@@ -17,7 +17,7 @@ namespace DataStructures.Dictionaries {
         private const int DEFAULT_CAPACITY = 10;
         public int Count { get; private set; }
 
-        public SortedArrayDictionary(): this(DEFAULT_CAPACITY) {}
+        public SortedArrayDictionary() : this(DEFAULT_CAPACITY) {}
 
         public SortedArrayDictionary(int Capacity) {
             Dictionary = new Entry<K, E>[Capacity];
@@ -58,7 +58,7 @@ namespace DataStructures.Dictionaries {
                 ReSize();
             }
 
-            if ((Key == null)|| (Entry == null)) {
+            if ((Key == null) || (Entry == null)) {
                 throw new ArgumentOutOfRangeException("Cannot have null Key or Entry.");
             }
 
@@ -67,7 +67,7 @@ namespace DataStructures.Dictionaries {
             } else {
                 if (Dictionary[Position] == null) {
                     Dictionary[Position] = new Entry<K, E>(Key, Entry);
-                } else if (Key.CompareTo(Dictionary[Position].Key)>= 0) {
+                } else if (Key.CompareTo(Dictionary[Position].Key) >= 0) {
                     Add(Position + 1, Key, Entry);
                 } else {
                     MakeRoom(Position);
@@ -180,7 +180,7 @@ namespace DataStructures.Dictionaries {
             }
 
             public bool HasNext() {
-                return AList.GetValue(Index)!= null;
+                return AList.GetValue(Index) != null;
             }
 
             public bool IsEqualTo(E Entry) {

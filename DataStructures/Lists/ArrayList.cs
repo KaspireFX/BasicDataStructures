@@ -18,7 +18,7 @@ namespace DataStructures.Lists {
 
         public int Count { get; private set; }
 
-        public ArrayList(): this(DEFAULT_CAPACITY) {}
+        public ArrayList() : this(DEFAULT_CAPACITY) {}
 
         public ArrayList(int Capacity) {
             List = new E[Capacity];
@@ -42,7 +42,7 @@ namespace DataStructures.Lists {
         }
 
         private bool CheckAvailability() {
-            if ((Count + 1)>= List.Length) {
+            if ((Count + 1) >= List.Length) {
                 return false;
             }
             return true;
@@ -62,7 +62,7 @@ namespace DataStructures.Lists {
             CheckInitialization();
 
             if (CheckAvailability()) {
-                if ((Position >= 1)&& (Position <= List.Length)) {
+                if ((Position >= 1) && (Position <= List.Length)) {
                     if (Position <= Count) {
                         MakeRoom(Position);
                     }
@@ -114,7 +114,7 @@ namespace DataStructures.Lists {
                 throw new InvalidOperationException("ArrayList is Empty.");
             }
 
-            if ((Position >= 1)&& (Position <= List.Length)) {
+            if ((Position >= 1) && (Position <= List.Length)) {
                 return List[Position];
             } else {
                 throw new ArgumentOutOfRangeException("Position is outside of List bounds.");
@@ -136,7 +136,7 @@ namespace DataStructures.Lists {
 
             E TempData = default(E);
 
-            if ((Position >= 1)&& (Position <= List.Length)) {
+            if ((Position >= 1) && (Position <= List.Length)) {
                 TempData = List[Position];
 
                 if (Position <= Count) {
@@ -162,7 +162,7 @@ namespace DataStructures.Lists {
 
             E TempData = default(E);
 
-            if ((Position >= 1)&& (Position <= List.Length)) {
+            if ((Position >= 1) && (Position <= List.Length)) {
                 TempData = List[Position];
                 List[Position] = NewEntry;
             } else {
@@ -200,7 +200,7 @@ namespace DataStructures.Lists {
             }
 
             public bool HasNext() {
-                return AList.IndexOf(Index)!= null;
+                return AList.IndexOf(Index) != null;
             }
 
             public bool IsEqualTo(E Entry) {

@@ -48,7 +48,7 @@ namespace DataStructures.Lists {
 
             Node NewNode = new Node(Entry);
 
-            if ((Position >= 1)&& (Position <= Count)) {
+            if ((Position >= 1) && (Position <= Count)) {
                 if (Position == 1) {
                     FrontNode = NewNode;
                 } else {
@@ -95,7 +95,7 @@ namespace DataStructures.Lists {
         public E IndexOf(int Position) {
             CheckInitialization();
 
-            if ((Position >= 1)&& (Position <= Count)) {
+            if ((Position >= 1) && (Position <= Count)) {
                 return GetNodeAt(Position).Data;
             } else {
                 throw new IndexOutOfRangeException("Illegal position for IndexOf.");
@@ -113,7 +113,7 @@ namespace DataStructures.Lists {
 
             E Data = default(E);
 
-            if ((Position >= 1)&& (Position <= Count)) {
+            if ((Position >= 1) && (Position <= Count)) {
                 if (Position == 1) {
                     Data = FrontNode.Data;
                     FrontNode = FrontNode.Next;
@@ -138,7 +138,7 @@ namespace DataStructures.Lists {
             E Data = default(E);
             Node NewNode = new Node(NewEntry);
 
-            if ((Position >= 1)&& (Position <= Count)) {
+            if ((Position >= 1) && (Position <= Count)) {
                 if (Position == 1) {
                     Data = FrontNode.Data;
                     FrontNode = NewNode;

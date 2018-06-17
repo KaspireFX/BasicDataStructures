@@ -17,7 +17,7 @@ namespace DataStructures.Dictionaries {
         private static int DEFAULT_CAPACITY = 10;
         public int Count { get; private set; }
 
-        public ArrayDictionary(): this(DEFAULT_CAPACITY) {}
+        public ArrayDictionary() : this(DEFAULT_CAPACITY) {}
 
         public ArrayDictionary(int Capacity) {
             Dictionary = new Entry<K, E>[Capacity];
@@ -33,7 +33,7 @@ namespace DataStructures.Dictionaries {
 
         private int LocateIndex(K Key) {
             int Index = 0;
-            while ((Index < Count)&& (!Key.Equals(Dictionary[Index].Key))) {
+            while ((Index < Count) && (!Key.Equals(Dictionary[Index].Key))) {
                 Index++;
             }
 
@@ -57,7 +57,7 @@ namespace DataStructures.Dictionaries {
                 ReSize();
             }
 
-            if ((Key == null)|| (Entry == null)) {
+            if ((Key == null) || (Entry == null)) {
                 throw new ArgumentOutOfRangeException("Cannot have null Key or Entry.");
             } else {
                 int KeyIndex = LocateIndex(Key);
@@ -74,7 +74,7 @@ namespace DataStructures.Dictionaries {
         public bool Contains(K Key) {
             CheckInitialization();
 
-            return LocateIndex(Key)< Count;
+            return LocateIndex(Key) < Count;
         }
 
         public void Empty() {
@@ -145,7 +145,7 @@ namespace DataStructures.Dictionaries {
             }
 
             public bool HasNext() {
-                return AList.GetValue(Index)!= null;
+                return AList.GetValue(Index) != null;
             }
 
             public bool IsEqualTo(E Entry) {

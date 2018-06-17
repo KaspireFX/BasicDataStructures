@@ -19,7 +19,7 @@ namespace DataStructures.Queues {
 
         public int Count { get; private set; }
 
-        public ArrayQueue(): this(DEFAULT_CAPACITY) {}
+        public ArrayQueue() : this(DEFAULT_CAPACITY) {}
 
         public ArrayQueue(int capacity) {
             Queue = new E[capacity];
@@ -36,7 +36,7 @@ namespace DataStructures.Queues {
         }
 
         private bool CheckAvailablility() {
-            if ((BackIndex + 1)== FrontIndex) {
+            if ((BackIndex + 1) == FrontIndex) {
                 return false;
             }
             return true;
@@ -46,7 +46,7 @@ namespace DataStructures.Queues {
             E[] NewQueue = new E[Queue.Length * 2];
             int Indexer = FrontIndex;
 
-            while ((Indexer % Queue.Length)!= BackIndex) {
+            while ((Indexer % Queue.Length) != BackIndex) {
                 NewQueue[Indexer] = Queue[Indexer % Queue.Length];
                 Indexer++;
             }
@@ -64,7 +64,7 @@ namespace DataStructures.Queues {
 
             int Indexer = FrontIndex;
 
-            while ((Indexer % Queue.Length)!= BackIndex) {
+            while ((Indexer % Queue.Length) != BackIndex) {
                 Queue[Indexer % Queue.Length] = default(E);
                 Indexer++;
                 Count--;
@@ -82,7 +82,7 @@ namespace DataStructures.Queues {
 
             E Temp = Queue[FrontIndex];
             Queue[FrontIndex] = default(E);
-            FrontIndex = (FrontIndex + 1)% Queue.Length;
+            FrontIndex = (FrontIndex + 1) % Queue.Length;
 
             Count--;
             return Temp;
@@ -93,7 +93,7 @@ namespace DataStructures.Queues {
 
             if (CheckAvailablility()) {
                 Queue[BackIndex] = NewEntry;
-                BackIndex = (BackIndex + 1)% Queue.Length;
+                BackIndex = (BackIndex + 1) % Queue.Length;
             } else {
                 ReSize();
                 Enqueue(NewEntry);

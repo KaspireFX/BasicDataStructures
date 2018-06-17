@@ -18,7 +18,7 @@ namespace DataStructures.Stacks {
         public int Length { get; private set; }
         public int Count { get; private set; }
 
-        public ArrayStack(): this(DEFAULT_CAPACITY) {}
+        public ArrayStack() : this(DEFAULT_CAPACITY) {}
 
         public ArrayStack(int capacity) {
             StackOfElements = new E[capacity];
