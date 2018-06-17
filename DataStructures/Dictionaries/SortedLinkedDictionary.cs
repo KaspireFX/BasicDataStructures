@@ -7,6 +7,7 @@ Date of Comment: 06:11:2018
  */
 
 using System;
+using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
@@ -139,6 +140,8 @@ namespace DataStructures.Dictionaries {
             return Data;
         }
 
+        public IIteratorInterface<E> ValueIterator => new LinkedDictionaryValueIterator(this);
+
         internal class Node {
             internal K Key { get; }
             internal E Data { get; set; }
@@ -160,6 +163,43 @@ namespace DataStructures.Dictionaries {
                 this.Key = NodeKey;
                 this.Data = NodeData;
                 this.Next = NextNode;
+            }
+        }
+
+        internal class LinkedDictionaryValueIterator : IIteratorInterface<E>
+        {
+            internal SortedLinkedDictionary<K, E> MyDictionary;
+            internal bool WasNextCalled = false;
+            internal Node CurrentNode;
+
+            internal LinkedDictionaryValueIterator(SortedLinkedDictionary<K, E> ParentDictionary) {
+                this.MyDictionary = ParentDictionary;
+                CurrentNode = MyDictionary.FrontNode;
+            }
+            public bool HasNext()
+            {
+                return CurrentNode != null;
+            }
+
+            public bool IsEqualTo(E Entry)
+            {
+                return CurrentNode.Data.Equals(Entry);
+            }
+
+            public E Next()
+            {
+                if(HasNext()) {
+                    E Data = CurrentNode.Data;
+                    CurrentNode = CurrentNode.Next;
+                    return Data;
+                } else {
+                    throw new InvalidOperationException("Iterator is at end of Dictionary, cannot iterate further.");
+                }
+            }
+
+            public void Reset()
+            {
+                CurrentNode = MyDictionary.FrontNode;
             }
         }
     }
