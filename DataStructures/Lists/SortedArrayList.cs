@@ -16,7 +16,7 @@ namespace DataStructures.Lists {
         private const int DEFAULT_CAPACITY = 10;
         public int Count { get; private set; }
 
-        public SortedArrayList() : this(DEFAULT_CAPACITY) {}
+        public SortedArrayList() : this(DEFAULT_CAPACITY) { }
 
         public SortedArrayList(int Capacity) {
             List = new E[Capacity];

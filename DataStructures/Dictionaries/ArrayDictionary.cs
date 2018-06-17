@@ -17,7 +17,7 @@ namespace DataStructures.Dictionaries {
         private static int DEFAULT_CAPACITY = 10;
         public int Count { get; private set; }
 
-        public ArrayDictionary() : this(DEFAULT_CAPACITY) {}
+        public ArrayDictionary() : this(DEFAULT_CAPACITY) { }
 
         public ArrayDictionary(int Capacity) {
             Dictionary = new Entry<K, E>[Capacity];

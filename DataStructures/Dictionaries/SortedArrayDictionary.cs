@@ -17,7 +17,7 @@ namespace DataStructures.Dictionaries {
         private const int DEFAULT_CAPACITY = 10;
         public int Count { get; private set; }
 
-        public SortedArrayDictionary() : this(DEFAULT_CAPACITY) {}
+        public SortedArrayDictionary() : this(DEFAULT_CAPACITY) { }
 
         public SortedArrayDictionary(int Capacity) {
             Dictionary = new Entry<K, E>[Capacity];

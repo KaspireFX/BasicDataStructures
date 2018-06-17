@@ -19,7 +19,7 @@ namespace DataStructures.Queues {
 
         public int Count { get; private set; }
 
-        public ArrayQueue() : this(DEFAULT_CAPACITY) {}
+        public ArrayQueue() : this(DEFAULT_CAPACITY) { }
 
         public ArrayQueue(int capacity) {
             Queue = new E[capacity];

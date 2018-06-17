@@ -18,7 +18,7 @@ namespace DataStructures.Lists {
 
         public int Count { get; private set; }
 
-        public ArrayList() : this(DEFAULT_CAPACITY) {}
+        public ArrayList() : this(DEFAULT_CAPACITY) { }
 
         public ArrayList(int Capacity) {
             List = new E[Capacity];

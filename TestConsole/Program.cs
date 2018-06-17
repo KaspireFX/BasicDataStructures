@@ -18,6 +18,6 @@ namespace TestConsole {
     class Program {
         private static Stopwatch sw = new Stopwatch();
 
-        public static void Main(string[] args) {}
+        public static void Main(string[] args) { }
     }
 }
