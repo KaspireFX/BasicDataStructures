@@ -18,6 +18,16 @@ namespace TestConsole {
     class Program {
         private static Stopwatch sw = new Stopwatch();
 
-        public static void Main(string[] args) { }
+        public static void Main(string[] args) {
+            SortedLinkedDictionary<int, string> Dict = new SortedLinkedDictionary<int, string>();
+
+            Dict.Add(5, "bob");
+            Dict.Add(1, "Phil");
+            Dict.Add(12, "Phillip");
+            Dict.Add(34, "Frank");
+            Dict.Add(54, "Bobby");
+            Dict.Add(40, "Billy");
+            Console.WriteLine(Dict.Contains(40));
+        }
     }
 }
