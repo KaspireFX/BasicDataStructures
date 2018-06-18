@@ -57,6 +57,7 @@ namespace DataStructures.Dictionaries {
                 if (TraversalNode.Key.Equals(Key)) {
                     return true;
                 }
+                TraversalNode = TraversalNode.Next;
             }
 
             return false;
