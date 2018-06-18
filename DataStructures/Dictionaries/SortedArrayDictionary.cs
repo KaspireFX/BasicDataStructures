@@ -99,8 +99,10 @@ namespace DataStructures.Dictionaries {
                 throw new InvalidOperationException("Cannot empty already empty dictionary.");
             }
 
-            for (int i = 0; i <= Count; i++) {
+            int Index = Count;
+            for (int i = 0; i < Index; i++) {
                 Dictionary[i] = null;
+                Count--;
             }
         }
 
@@ -198,7 +200,7 @@ namespace DataStructures.Dictionaries {
             }
 
             public void Reset() {
-                Index = 1;
+                Index = 0;
             }
         }
 
