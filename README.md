@@ -16,7 +16,7 @@ No, the Data Structures in this project are not my own ideas. I am getting these
 
 [Buy on amazon here!](https://www.amazon.com/Data-Structures-Abstractions-Java-4th/dp/0133744051/ref=sr_1_2?ie=UTF8&qid=1527985860&sr=8-2&keywords=Data+Structures+and+Abstractions+with+java)
 
-The code from in the book is looked at as a reference (**NOT COPIED**) for how these Data Structures in the project should work, but some variable names and pieces of code that only exist in C# syntax are different.
+The code from in the book is looked at as a reference (**NOT A DIRECT COPY**) for how these Data Structures in the project should work, but some variable names and pieces of code that only exist in C# syntax are different.
 
 Most of these Data Structures acutally exist already in the C# libraries and are most likely more efficient and should be used above the ones in this project...but in the off-chance you like these Data Structures and the way they are programmed more, then by all means, go ahead and use them.
 
@@ -41,6 +41,8 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 - [x] Dictionaries
     - [x] Array based Implementation
     - [x] Linked Chain based Implementation
+    - [x] Sorted Array based Implementation
+    - [x] Sorted Linked based Implementation
 - [ ] Trees
 - [ ] AVL Trees
 - [ ] Good Comments !!
