@@ -12,7 +12,7 @@ using DataStructures.Iterator;
 using NUnit.Framework;
 
 namespace Tests.DictionaryIteratorTests {
-    public class LinkedDictionaryTests {
+    public class LinkedDictionaryIteratorTests {
 
         LinkedDictionary<int, string> LDictionary = new LinkedDictionary<int, string>();
         IIteratorInterface<string> Iterator;
