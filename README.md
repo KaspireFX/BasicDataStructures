@@ -47,7 +47,7 @@ Most of these Data Structures acutally exist already in the C# libraries and are
 - [ ] AVL Trees
 - [ ] Good Comments !!
 - [ ] Anything else I decide to add
-    - [ ] Constructor for both List implementations: Takes in array and creates list of that type
+    - [x] Constructor for both List implementations: Takes in array and creates list of that type
 
 ## How can I use these Data Structures in my project?
 
