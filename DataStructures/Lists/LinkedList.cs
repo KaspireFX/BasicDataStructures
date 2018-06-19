@@ -21,6 +21,15 @@ namespace DataStructures.Lists {
             Count = 0;
             Initialized = true;
         }
+        public LinkedList(E[] Array) {
+            FrontNode = null;
+            Count = 0;
+            Initialized = true;
+
+            foreach (E element in Array) {
+                Add(element);
+            }
+        }
 
         private void CheckInitialization() {
             if (!Initialized) {
