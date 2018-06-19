@@ -17,17 +17,21 @@ using DataStructures.Stacks;
 namespace TestConsole {
     class Program {
         private static Stopwatch sw = new Stopwatch();
+        private static ArrayList<string> AList;
+        private static SortedArrayList<string> SAList;
+        private static LinkedList<string> LList;
+        private static SortedLinkedList<string> SLList;
 
         public static void Main(string[] args) {
-            SortedLinkedDictionary<int, string> Dict = new SortedLinkedDictionary<int, string>();
+            string[] Array = new string[] { "bob", "Phil", "Frank", "Phillip", "Willie" };
+            AList = new ArrayList<string>(Array);
+            SAList = new SortedArrayList<string>(Array);
+            LList = new LinkedList<string>(Array);
+            SLList = new SortedLinkedList<string>(Array);
 
-            Dict.Add(5, "bob");
-            Dict.Add(1, "Phil");
-            Dict.Add(12, "Phillip");
-            Dict.Add(34, "Frank");
-            Dict.Add(54, "Bobby");
-            Dict.Add(40, "Billy");
-            Console.WriteLine(Dict.Contains(40));
+            for (int i = 1; i <= SLList.Count; i++) {
+                Console.WriteLine(SLList.IndexOf(i));
+            }
         }
     }
 }
