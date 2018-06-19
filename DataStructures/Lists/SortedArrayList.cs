@@ -7,6 +7,7 @@ Date of Comment: 06:14:2018
 */
 
 using System;
+using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
@@ -42,7 +43,7 @@ namespace DataStructures.Lists {
 
         private void ReSize() {
             E[] Temp = new E[List.Length * 2];
-            for (int i = 1; i < Count; i++) {
+            for (int i = 0; i <= Count; i++) {
                 Temp[i] = List[i];
             }
 
@@ -69,6 +70,7 @@ namespace DataStructures.Lists {
         private void Add(int Position, E Entry) {
             if (IsFull()) {
                 ReSize();
+                Add(Position, Entry);
             } else if (IsEmpty()) {
                 List[Count + 1] = Entry;
             } else if (Entry.CompareTo(List[Position]) <= 0) {
@@ -104,8 +106,10 @@ namespace DataStructures.Lists {
                 throw new InvalidOperationException("Cannot empty already empty List.");
             }
 
-            for (int i = 1; i < Count; i++) {
+            int Index = Count;
+            for (int i = 1; i <= Index; i++) {
                 List[i] = default(E);
+                Count--;
             }
         }
 
@@ -149,12 +153,46 @@ namespace DataStructures.Lists {
         public E[] ToArray() {
             CheckInitialization();
 
-            E[] Temp = new E[Count - 1];
-            for (int i = 1; i < Count; i++) {
+            E[] Temp = new E[Count];
+            for (int i = 1; i <= Count; i++) {
                 Temp[i - 1] = List[i];
             }
 
             return Temp;
+        }
+
+        public IIteratorInterface<E> Iterator => new SortedArrayListIterator(this);
+
+        internal class SortedArrayListIterator : IIteratorInterface<E> {
+            internal int Index;
+            internal SortedArrayList<E> AList;
+
+            internal SortedArrayListIterator(SortedArrayList<E> ParentList) {
+                this.AList = ParentList;
+                Index = 1;
+            }
+
+            public bool HasNext() {
+                return AList.IndexOf(Index) != null;
+            }
+
+            public bool IsEqualTo(E Entry) {
+                return AList.IndexOf(Index).Equals(Entry);
+            }
+
+            public E Next() {
+                if (HasNext()) {
+                    E Data = AList.IndexOf(Index);
+                    Index++;
+                    return Data;
+                } else {
+                    throw new InvalidOperationException("Iterator is at end of List, cannot iterator further.");
+                }
+            }
+
+            public void Reset() {
+                Index = 1;
+            }
         }
     }
 }
