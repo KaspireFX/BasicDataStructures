@@ -22,6 +22,16 @@ namespace DataStructures.Lists {
             Initialized = true;
         }
 
+        public SortedLinkedList(E[] Array) {
+            FrontNode = null;
+            Count = 0;
+            Initialized = true;
+
+            foreach (E element in Array) {
+                Add(element);
+            }
+        }
+
         private void CheckInitialization() {
             if (!Initialized) {
                 throw new InvalidOperationException("SortedLinkedList was not Initialized correctly.");
