@@ -29,8 +29,10 @@ namespace TestConsole {
             LList = new LinkedList<string>(Array);
             SLList = new SortedLinkedList<string>(Array);
 
-            for (int i = 1; i <= SLList.Count; i++) {
-                Console.WriteLine(SLList.IndexOf(i));
+            string[] a = SLList.ToArray();
+
+            foreach (string s in a) {
+                Console.WriteLine(s);
             }
         }
     }
