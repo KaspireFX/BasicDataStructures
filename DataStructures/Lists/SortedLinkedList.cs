@@ -115,7 +115,7 @@ namespace DataStructures.Lists {
             CheckInitialization();
 
             E[] Array = new E[Count];
-            for (int i = 1; i < Count; i++) {
+            for (int i = 1; i <= Count; i++) {
                 Array[i - 1] = GetNodeAt(i).Data;
             }
 
