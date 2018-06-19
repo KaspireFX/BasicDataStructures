@@ -26,6 +26,16 @@ namespace DataStructures.Lists {
             Initialized = true;
         }
 
+        public ArrayList(E[] Array) {
+            List = new E[Array.Length];
+            Count = 0;
+            Initialized = true;
+
+            foreach (E element in Array) {
+                Add(element);
+            }
+        }
+
         private void CheckInitialization() {
             if (!Initialized) {
                 throw new InvalidOperationException("ArrayList was not Initialized correctly.");
