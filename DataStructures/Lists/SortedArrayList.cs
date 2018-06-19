@@ -24,6 +24,16 @@ namespace DataStructures.Lists {
             Initialized = true;
         }
 
+        public SortedArrayList(E[] Array) {
+            List = new E[Array.Length];
+            Count = 0;
+            Initialized = true;
+
+            foreach (E element in Array) {
+                Add(element);
+            }
+        }
+
         private void CheckInitialization() {
             if (!Initialized) {
                 throw new InvalidOperationException("SortedArrayList not initialized correctly.");
@@ -53,6 +63,7 @@ namespace DataStructures.Lists {
             CheckInitialization();
 
             Add(1, Entry);
+            Count++;
         }
 
         private void Add(int Position, E Entry) {
@@ -63,13 +74,13 @@ namespace DataStructures.Lists {
             } else if (Entry.CompareTo(List[Position]) <= 0) {
                 MakeSpace(Position);
                 List[Position] = Entry;
-            } else if (Entry.CompareTo(List[Position]) > 0) {
-                Add(Position + 1, Entry);
             } else {
-                List[Position] = Entry;
+                if (List[Position] == null) {
+                    List[Position] = Entry;
+                } else {
+                    Add(Position + 1, Entry);
+                }
             }
-
-            Count++;
         }
 
         public bool Contains(E AnEntry) {
