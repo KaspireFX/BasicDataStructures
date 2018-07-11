@@ -15,7 +15,7 @@ namespace Tests.DictionaryIteratorTests {
     public class LinkedDictionaryIteratorTests {
 
         LinkedDictionary<int, string> LDictionary = new LinkedDictionary<int, string>();
-        IIteratorInterface<string> Iterator;
+        IIterator<string> Iterator;
 
         [SetUp]
         public void Setup() {

@@ -15,7 +15,7 @@ namespace Tests.DictionaryIteratorTests {
     public class ArrayDictionaryIteratorTests {
 
         ArrayDictionary<int, string> ADictionary = new ArrayDictionary<int, string>();
-        IIteratorInterface<string> Iterator;
+        IIterator<string> Iterator;
 
         [SetUp]
         public void Setup() {

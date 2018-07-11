@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: LinkedStack.cs
 Version: 1.0.1
-Description: This file is the class file for the LinkedStack object which implements IStackInterface.
+Description: This file is the class file for the LinkedStack object which implements IStack.
 Date of Comment: 06:01:2018
  */
 
@@ -10,7 +10,7 @@ using System;
 
 namespace DataStructures.Stacks {
 
-    public class LinkedStack<E> : IStackInterface<E> {
+    public class LinkedStack<E> : IStack<E> {
         private Node TopNode;
 
         public int Count { get; private set; }

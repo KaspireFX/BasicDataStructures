@@ -1,6 +1,6 @@
 /*
 Author: Jacob Chandler
-File: IQueueInterface.cs
+File: IQueue.cs
 Version: 1.0.1
 Description: This file is the Interface file for Queue implementation.
 Date of Comment: 06:01:2018
@@ -10,7 +10,7 @@ using System;
 
 namespace DataStructures.Queues {
 
-    public interface IQueueInterface<T> {
+    public interface IQueue<T> {
 
         int Count { get; }
 

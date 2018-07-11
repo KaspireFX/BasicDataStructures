@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: ArrayQueue.cs
 Version: 1.0.1
-Description: This file is the ArrayQueue class file which implements IQueueInterface.
+Description: This file is the ArrayQueue class file which implements IQueue.
 Date of Comment: 06:01:2018
  */
 
@@ -10,7 +10,7 @@ using System;
 
 namespace DataStructures.Queues {
 
-    public class ArrayQueue<E> : IQueueInterface<E> {
+    public class ArrayQueue<E> : IQueue<E> {
         private E[] Queue;
         private bool Initialized;
         private int FrontIndex;

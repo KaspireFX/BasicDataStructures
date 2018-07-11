@@ -1,6 +1,6 @@
 /*
 Author: Jacob Chandler
-File: ISortedListInterface.cs
+File: ISortedList.cs
 Version 1.0.1
 Description: This file is the Interface for the SortedList data type.
 Date of Comment: 06:10:2018
@@ -10,7 +10,7 @@ using System;
 
 namespace DataStructures.Lists {
 
-    public interface ISortedListInterface<T> {
+    public interface ISortedList<T> {
 
         int Count { get; }
 

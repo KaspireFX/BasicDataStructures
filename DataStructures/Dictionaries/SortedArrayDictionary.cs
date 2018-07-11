@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: SortedArrayDictionary.cs
 Version 1.0.1
-Description: This file is the SortedArrayDictionary class file which implements IDictionaryInterface.
+Description: This file is the SortedArrayDictionary class file which implements IDictionary.
 Date of Comment: 06:15:2018
  */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
-    public class SortedArrayDictionary<K, E> : IDictionaryInterface<K, E> where K : IComparable {
+    public class SortedArrayDictionary<K, E> : IDictionary<K, E> where K : IComparable {
         private Entry<K, E>[] Dictionary;
         private bool Initialized;
         private const int DEFAULT_CAPACITY = 10;
@@ -160,7 +160,7 @@ namespace DataStructures.Dictionaries {
             return Data;
         }
 
-        public IIteratorInterface<E> ValueIterator => new ArrayDictionaryValueIterator(this);
+        public IIterator<E> ValueIterator => new ArrayDictionaryValueIterator(this);
 
         internal class Entry<S, T> {
             internal S Key { get; }
@@ -172,7 +172,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        internal class ArrayDictionaryValueIterator : IIteratorInterface<E> {
+        internal class ArrayDictionaryValueIterator : IIterator<E> {
             internal int Index;
             internal SortedArrayDictionary<K, E> AList;
 

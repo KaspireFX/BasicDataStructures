@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: LinkedDictionary.cs
 Version 1.0.1
-Description: This file is the LinkedDictionary class file which implements IDictionaryInterface.
+Description: This file is the LinkedDictionary class file which implements IDictionary.
 Date of Comment: 06:11:2018
  */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
-    public class LinkedDictionary<K, E> : IDictionaryInterface<K, E> {
+    public class LinkedDictionary<K, E> : IDictionary<K, E> {
         private Node FrontNode;
         private Node BackNode;
         bool Initialized = false;
@@ -130,7 +130,7 @@ namespace DataStructures.Dictionaries {
             return Data;
         }
 
-        public IIteratorInterface<E> ValueIterator => new LinkedDictionaryValueIterator(this);
+        public IIterator<E> ValueIterator => new LinkedDictionaryValueIterator(this);
 
         internal class Node {
             internal K Key { get; }
@@ -153,7 +153,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        internal class LinkedDictionaryValueIterator : IIteratorInterface<E> {
+        internal class LinkedDictionaryValueIterator : IIterator<E> {
             internal LinkedDictionary<K, E> MyDictionary;
             internal bool WasNextCalled = false;
             internal Node CurrentNode;

@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: LinkedList.cs
 Version 1.0.1
-Description: This file is the LinkedList class file which implements IListInterface.
+Description: This file is the LinkedList class file which implements IList.
 Date of Comment: 06:05:2018
  */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
-    public class LinkedList<E> : IListInterface<E> {
+    public class LinkedList<E> : IList<E> {
         private Node FrontNode;
         public int Count { get; private set; }
         private bool Initialized = false;
@@ -184,7 +184,7 @@ namespace DataStructures.Lists {
             return Array;
         }
 
-        public IIteratorInterface<E> Iterator => new LinkedListIterator(this);
+        public IIterator<E> Iterator => new LinkedListIterator(this);
 
         private Node GetNodeAt(int Index) {
             Node CurrentNode = FrontNode;
@@ -217,7 +217,7 @@ namespace DataStructures.Lists {
 
         }
 
-        internal class LinkedListIterator : IIteratorInterface<E> {
+        internal class LinkedListIterator : IIterator<E> {
             internal LinkedList<E> MyList;
             internal bool WasNextCalled = false;
             internal Node CurrentNode;

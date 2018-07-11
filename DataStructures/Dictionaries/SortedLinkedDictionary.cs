@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: SortedLinkedDictionary.cs
 Version 1.0.1
-Description: This file is the SortedLinkedDictionary class file which implements IDictionaryInterface.
+Description: This file is the SortedLinkedDictionary class file which implements IDictionary.
 Date of Comment: 06:11:2018
  */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
-    public class SortedLinkedDictionary<K, E> : IDictionaryInterface<K, E> where K : IComparable {
+    public class SortedLinkedDictionary<K, E> : IDictionary<K, E> where K : IComparable {
         private Node FrontNode;
         private bool Initialized = false;
         public int Count { get; private set; }
@@ -134,7 +134,7 @@ namespace DataStructures.Dictionaries {
             return Data;
         }
 
-        public IIteratorInterface<E> ValueIterator => new LinkedDictionaryValueIterator(this);
+        public IIterator<E> ValueIterator => new LinkedDictionaryValueIterator(this);
 
         internal class Node {
             internal K Key { get; }
@@ -160,7 +160,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        internal class LinkedDictionaryValueIterator : IIteratorInterface<E> {
+        internal class LinkedDictionaryValueIterator : IIterator<E> {
             internal SortedLinkedDictionary<K, E> MyDictionary;
             internal bool WasNextCalled = false;
             internal Node CurrentNode;

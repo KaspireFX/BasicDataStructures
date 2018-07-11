@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: SortedArrayList.cs
 Version 1.0.1
-Description: This file is the SortedArrayList class file which implements ISortedListInterface.
+Description: This file is the SortedArrayList class file which implements ISortedList.
 Date of Comment: 06:14:2018
 */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
-    public class SortedArrayList<E> : ISortedListInterface<E> where E : IComparable {
+    public class SortedArrayList<E> : ISortedList<E> where E : IComparable {
         private E[] List;
         private bool Initialized = false;
         private const int DEFAULT_CAPACITY = 10;
@@ -161,9 +161,9 @@ namespace DataStructures.Lists {
             return Temp;
         }
 
-        public IIteratorInterface<E> Iterator => new SortedArrayListIterator(this);
+        public IIterator<E> Iterator => new SortedArrayListIterator(this);
 
-        internal class SortedArrayListIterator : IIteratorInterface<E> {
+        internal class SortedArrayListIterator : IIterator<E> {
             internal int Index;
             internal SortedArrayList<E> AList;
 

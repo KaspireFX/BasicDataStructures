@@ -125,7 +125,7 @@ namespace Example {
         private static ArrayStack<string> Stack = new ArrayStack<string>(5);
         private static LinkedQueue<int> Queue = new LinkedQueue<int>();
         private static ArrayList<double> List = new ArrayList<double>(10);
-        private static IIteratorInterface<double> ListIterator;
+        private static IIterator<double> ListIterator;
 
         public static void Main(String[] args) {
             Stack.Push("Bob");

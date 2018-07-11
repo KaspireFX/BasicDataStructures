@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: LinkedQueue.cs
 Version: 1.0.1
-Description: This file is the linkedQueue class file which implements IQueueInterface.
+Description: This file is the linkedQueue class file which implements IQueue.
 Date of Comment: 06:01:2018
  */
 
@@ -10,7 +10,7 @@ using System;
 
 namespace DataStructures.Queues {
 
-    public class LinkedQueue<E> : IQueueInterface<E> {
+    public class LinkedQueue<E> : IQueue<E> {
         private Node FrontNode;
         private Node BackNode;
         private bool Initialized = false;

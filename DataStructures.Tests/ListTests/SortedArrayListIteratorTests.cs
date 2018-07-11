@@ -15,7 +15,7 @@ namespace Tests.ListIteratorTests {
     public class SortedArrayListIteratorTests {
 
         SortedArrayList<string> SAList = new SortedArrayList<string>();
-        IIteratorInterface<string> Iterator;
+        IIterator<string> Iterator;
 
         [SetUp]
         public void Setup() {

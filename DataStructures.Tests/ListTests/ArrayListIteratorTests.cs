@@ -15,7 +15,7 @@ namespace Tests.ListIteratorTests {
     public class ArrayListIteratorTests {
 
         ArrayList<string> AList = new ArrayList<string>();
-        IIteratorInterface<string> Iterator;
+        IIterator<string> Iterator;
 
         [SetUp]
         public void Setup() {

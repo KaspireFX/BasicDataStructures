@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: ArrayDictionary.cs
 Version 1.0.1
-Description: This file is the ArrayDictionary class file which implements IDictionaryInterface.
+Description: This file is the ArrayDictionary class file which implements IDictionary.
 Date of Comment: 06:11:2018
  */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Dictionaries {
 
-    public class ArrayDictionary<K, E> : IDictionaryInterface<K, E> {
+    public class ArrayDictionary<K, E> : IDictionary<K, E> {
         private Entry<K, E>[] Dictionary;
         private bool Initialized = false;
         private static int DEFAULT_CAPACITY = 10;
@@ -119,7 +119,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        public IIteratorInterface<E> ValueIterator => new ArrayDictionaryValueIterator(this);
+        public IIterator<E> ValueIterator => new ArrayDictionaryValueIterator(this);
 
         private Entry<K, E> GetValue(int Index) {
             return Dictionary[Index];
@@ -135,7 +135,7 @@ namespace DataStructures.Dictionaries {
             }
         }
 
-        internal class ArrayDictionaryValueIterator : IIteratorInterface<E> {
+        internal class ArrayDictionaryValueIterator : IIterator<E> {
             internal int Index;
             internal ArrayDictionary<K, E> AList;
 

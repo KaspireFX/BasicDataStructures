@@ -15,7 +15,7 @@ namespace Tests.ListIteratorTests {
     public class LinkedListIteratorTests {
 
         LinkedList<string> LList = new LinkedList<string>();
-        IIteratorInterface<string> Iterator;
+        IIterator<string> Iterator;
 
         [SetUp]
         public void Setup() {

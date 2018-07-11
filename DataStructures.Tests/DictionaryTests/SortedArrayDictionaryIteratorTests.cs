@@ -15,7 +15,7 @@ namespace Tests.DictionaryIteratorTests {
     public class SortedArrayDictionaryIteratorTests {
 
         SortedArrayDictionary<int, string> ADictionary = new SortedArrayDictionary<int, string>();
-        IIteratorInterface<string> Iterator;
+        IIterator<string> Iterator;
 
         [SetUp]
         public void Setup() {

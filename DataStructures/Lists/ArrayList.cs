@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: ArrayList.cs
 Version 1.0.1
-Description: This file is the ArrayList class file which implements IListInterface.
+Description: This file is the ArrayList class file which implements IList.
 Date of Comment: 06:02:2018
  */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
-    public class ArrayList<E> : IListInterface<E> {
+    public class ArrayList<E> : IList<E> {
         private E[] List;
         private const int DEFAULT_CAPACITY = 10;
         private bool Initialized = false;
@@ -198,9 +198,9 @@ namespace DataStructures.Lists {
             return TempArray;
         }
 
-        public IIteratorInterface<E> Iterator => new ArrayListIterator(this);
+        public IIterator<E> Iterator => new ArrayListIterator(this);
 
-        internal class ArrayListIterator : IIteratorInterface<E> {
+        internal class ArrayListIterator : IIterator<E> {
             internal int Index;
             internal ArrayList<E> AList;
 

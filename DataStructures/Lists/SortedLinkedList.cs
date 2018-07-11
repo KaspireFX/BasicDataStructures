@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: SortedLinkedList.cs
 Version 1.0.1
-Description: This file is the SortedLinkedList class file which implements IListInterface.
+Description: This file is the SortedLinkedList class file which implements IList.
 Date of Comment: 06:10:2018
  */
 
@@ -11,7 +11,7 @@ using DataStructures.Iterator;
 
 namespace DataStructures.Lists {
 
-    public class SortedLinkedList<E> : ISortedListInterface<E> where E : IComparable {
+    public class SortedLinkedList<E> : ISortedList<E> where E : IComparable {
         public int Count { get; private set; }
         private Node FrontNode;
         private bool Initialized = false;
@@ -149,7 +149,7 @@ namespace DataStructures.Lists {
             return Found;
         }
 
-        public IIteratorInterface<E> Iterator => new SortedLinkedListIterator(this);
+        public IIterator<E> Iterator => new SortedLinkedListIterator(this);
 
         internal class Node {
             internal Node Next { get; set; }
@@ -166,7 +166,7 @@ namespace DataStructures.Lists {
             }
         }
 
-        internal class SortedLinkedListIterator : IIteratorInterface<E> {
+        internal class SortedLinkedListIterator : IIterator<E> {
             internal SortedLinkedList<E> MyList;
             internal bool WasNextCalled = false;
             internal Node CurrentNode;

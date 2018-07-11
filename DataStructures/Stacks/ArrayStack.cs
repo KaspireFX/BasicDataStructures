@@ -2,7 +2,7 @@
 Author: Jacob Chandler
 File: ArrayStack.cs
 Version: 1.0.1
-Description: This file is the class file for the ArrayStack object which implements IStackInterface.
+Description: This file is the class file for the ArrayStack object which implements IStack.
 Date of Comment: 06:01:2018
  */
 
@@ -10,7 +10,7 @@ using System;
 
 namespace DataStructures.Stacks {
 
-    public class ArrayStack<E> : IStackInterface<E> {
+    public class ArrayStack<E> : IStack<E> {
         private E[] StackOfElements;
         private const int DEFAULT_CAPACITY = 10;
         private int TopElement;
