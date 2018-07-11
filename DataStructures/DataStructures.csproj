@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <VersionPrefix>1.0.1</VersionPrefix>
+    <!-- ADD WHEN DOING XML DOCUMENTATION (COMMENTS)
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\YourApi.XML</DocumentationFile>-->
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
