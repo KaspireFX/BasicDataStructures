@@ -13,6 +13,7 @@ using DataStructures.Iterator;
 using DataStructures.Lists;
 using DataStructures.Queues;
 using DataStructures.Stacks;
+using DataStructures.Trees;
 
 namespace TestConsole {
     class Program {
@@ -23,17 +24,12 @@ namespace TestConsole {
         private static SortedLinkedList<string> SLList;
 
         public static void Main(string[] args) {
-            string[] Array = new string[] { "bob", "Phil", "Frank", "Phillip", "Willie" };
-            AList = new ArrayList<string>(Array);
-            SAList = new SortedArrayList<string>(Array);
-            LList = new LinkedList<string>(Array);
-            SLList = new SortedLinkedList<string>(Array);
-
-            string[] a = SLList.ToArray();
-
-            foreach (string s in a) {
-                Console.WriteLine(s);
-            }
+            BinaryTree<int> Tree = new BinaryTree<int>();
+            Tree.Add(10);
+            Tree.Add(4);
+            Tree.Add(11);
+            Tree.Add(2);
+            Tree.Add(5);
         }
     }
 }
