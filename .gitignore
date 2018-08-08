@@ -9,3 +9,6 @@
 
 #ignore todo files
 *.todo
+
+#ignore vs liveshare
+*/.vs/*
