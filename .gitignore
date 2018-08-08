@@ -5,7 +5,7 @@
 */obj/**
 
 #ignore vscode files
-.vscode/**
+*/.vscode/**
 
 #ignore todo files
 *.todo
