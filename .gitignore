@@ -6,3 +6,6 @@
 
 #ignore vscode files
 .vscode/**
+
+#ignore todo files
+*.todo
