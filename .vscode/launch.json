@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/TestConsole/bin/Debug/netcoreapp2.1/TestConsole.dll",
             "args": [],
             "cwd": "${workspaceFolder}/TestConsole/",
-            "console": "externalTerminal",
+            "console": "internalConsole",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"
         },
